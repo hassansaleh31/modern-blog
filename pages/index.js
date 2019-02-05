@@ -1,17 +1,24 @@
 import Layout from '../components/MyLayout.js'
-import PostLink from '../components/PostLink'
+import HomeLatestPost from '../components/HomeLatestPost'
+import PostList from '../components/PostList'
 import Posts from '../models/posts'
+import Head from 'next/head'
 
 const Index = (props) => (
     <Layout>
-        <h1>Blog Posts</h1>
-        <ul>
-            {
-                props.posts.map((post) => (
-                    <PostLink key={post.id} post={post} />
-                ))
-            }
-        </ul>
+        <Head>
+            <title>Hassan Saleh's Blog</title>
+            <meta name="description" content="Test description"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        </Head>
+        <div style={{ padding: '1em' }}>
+            <HomeLatestPost post={props.posts[0]} />
+            <h2 style={{ borderBottom: '1px solid #cecece' }}>Latest Posts</h2>
+            <PostList posts={props.posts.slice(1)} />
+        </div>
+        <div>
+            Side
+        </div>
     </Layout>
 )
 
