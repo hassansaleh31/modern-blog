@@ -44,6 +44,12 @@ const PostList = (props) => (
                     background-color: white;
                     border-radius: .5em;
                     box-shadow: 0 0 1em #a7a7a78a;
+                    transition: transform 200ms ease-out, opacity 200ms ease-out;
+                }
+
+                .post-card:hover {
+                    transform: translateY(-0.5em);
+                    opacity: 0.85;
                 }
 
                 .post-card-content {

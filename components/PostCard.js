@@ -7,7 +7,7 @@ const PostCard = (props) => (
                 <div style={{ backgroundImage: `url(${props.post.image})` }} className="post-card-image"></div>
                 <div className="post-card-content">
                     <h2>{props.post.title}</h2>
-                    <span>{props.post.date.toLocaleString()}</span>
+                    <span>{props.post.date.toString()}</span>
                     <p>{props.post.body}</p>
                 </div>
             </div>
