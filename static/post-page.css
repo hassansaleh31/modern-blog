@@ -1,0 +1,8 @@
+code {
+    padding: 1em;
+    background-color: #00132f;
+    color: #fcfdfc;
+    display: inline-block;
+    border-radius: .5em;
+    box-shadow: 0 0 1em #00132f6e;
+}

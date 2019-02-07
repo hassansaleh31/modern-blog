@@ -18,7 +18,7 @@ export default (props) => (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: '1em' }}>
             <h1 style={{ margin: 0, marginBottom: '1em' }}>{props.post.title}</h1>
             <span>{props.post.date.toLocaleString()}</span>
-            <p>{props.post.body}</p>
+            <p>{props.post.description}</p>
             <div style={{ flex: '1 1 auto' }}></div>
             <Link as={`/p/${props.post.id}`} href={`/post?id=${props.post.id}`}>
                 <a style={{ alignSelf: 'flex-end' }}>Read More</a>

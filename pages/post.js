@@ -1,5 +1,7 @@
 import Layout from '../components/MyLayout.js'
 import Posts from '../models/posts'
+import MarkdownText from '../components/MarkdownText'
+import Head from 'next/head';
 
 class Page extends React.Component {
     constructor(props) {
@@ -25,12 +27,17 @@ class Page extends React.Component {
     render() {
         return (
             <Layout>
-                <div style={{ margin: '1em', padding: '1em', backgroundColor: 'white', border: '2px solid #cacaca' }}>
+                <Head>
+                    <title>{this.props.post.title}</title>
+                    <link href="/static/monokai-sublime.css" rel="stylesheet" />
+                    <link href="/static/post-page.css" rel="stylesheet" />
+                </Head>
+                <div style={{ margin: '1em', padding: '1em', backgroundColor: 'white', border: '2px solid #cacaca', borderRadius: '.5em' }}>
                     <h1>{this.props.post.title}</h1>
                     <p>By {this.props.post.author}</p>
-                    <span>Posted on {this.props.post.date.toString()}</span>
+                    <p>Posted on {this.props.post.date.toString()}</p>
                     <img src={this.props.post.image} style={{ maxWidth: '100%', boxShadow: '0 0 1em #a7a7a78a' }} />
-                    <p>{this.props.post.body}</p>
+                    <MarkdownText text={this.props.post.body} />
                 </div>
                 <div>Side</div>
             </Layout>
