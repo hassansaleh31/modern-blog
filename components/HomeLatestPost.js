@@ -1,26 +1,55 @@
-import Link from 'next/link'
-
 export default (props) => (
-    <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        backgroundColor: 'white',
-        borderRadius: '.5em',
-        boxShadow: '0 0 1em #a7a7a78a'
-    }}>
-        <div style={{
-            backgroundImage: `url(${props.post.image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            minHeight: '400px',
-            borderRadius: '0.5em 0 0 0.5em'
-        }}></div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: '1em' }}>
-            <h1 style={{ margin: 0, marginBottom: '1em' }}>{props.post.title}</h1>
-            <span>{new Date(props.post.date).toDateString()}</span>
-            <p>{props.post.description}</p>
-            <div style={{ flex: '1 1 auto' }}></div>
-            <a href={`/p/${props.post.id}`} style={{ alignSelf: 'flex-end' }}>Read More</a>
+    <a href={`/p/${props.post.id}`}>
+        <div id="latest-post" style={{ backgroundImage: `url(${props.post.image})` }}>
+            <div id="latest-post-content" style={{ padding: '1em' }}>
+                <h1 style={{ margin: 0, marginBottom: '1em' }}>{props.post.title}</h1>
+                <span>{new Date(props.post.date).toDateString()}</span>
+            </div>
+            <style jsx>
+                {`
+                #latest-post {
+                    border-radius: .5em;
+                    box-shadow: 0 0 1em #a7a7a78a;
+                    background-size: cover;
+                    background-position: center;
+                    position: relative;
+                    background-color: white;
+                    transition: transform 200ms ease-out;
+                }
+
+                #latest-post::after {
+                    content: '';
+                    display: block;
+                    padding-bottom: 100%;
+                }
+
+                @media only screen and (min-width: 686px) {
+                    #latest-post::after {
+                        padding-bottom: 50%;
+                    }
+                }
+
+                #latest-post:hover {
+                    transform: scale(0.98);
+                }
+
+                #latest-post-content {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    color: white;
+                    background-image: linear-gradient(#00000073, black);
+                    border-radius: 0 0 .5em .5em;
+                }
+
+                #latest-post-footer {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+            `}
+            </style>
         </div>
-    </div>
+    </a>
 )

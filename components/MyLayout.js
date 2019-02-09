@@ -1,21 +1,16 @@
 import Header from './Header'
+import Head from 'next/head'
 
 const Layout = (props) => (
     <div>
+        <Head>
+            <link href="/static/index.css" rel="stylesheet" />
+        </Head>
         <Header />
         <div className="main-grid">
             {props.children}
         </div>
-        <style jsx global>
-            {`
-                body { 
-                    margin 0;
-                    background-color: #fcfcfc;
-                    font-family: sans-serif;
-                    color: #212121;
-                }
-            `}
-        </style>
+
         <style jsx>
             {`
                 .main-grid {
@@ -26,8 +21,10 @@ const Layout = (props) => (
                 @media only screen and (min-width: 1135px) {
                     .main-grid {
                         display: grid;
-                        grid-template-columns: 1fr 300px;
+                        grid-template-columns: 804px 300px;
                         grid-gap: 1em;
+                        max-width: 1135px;
+                        margin: auto;
                     }
                 }
             `}

@@ -1,15 +1,19 @@
 const PostCard = (props) => (
     <li>
-        <a style={{ textDecoration: 'none', color: 'inherit' }} href={`/p/${props.post.id}`}>
-            <div className="post-card">
+        <div className="post-card">
+            <a href={`/p/${props.post.id}`}>
                 <div style={{ backgroundImage: `url(${props.post.image})` }} className="post-card-image"></div>
-                <div className="post-card-content">
-                    <h2>{props.post.title}</h2>
-                    <span>{new Date(props.post.date).toDateString()}</span>
-                    <p>{props.post.description}</p>
-                </div>
+            </a>
+            <div className="post-card-content">
+                <h2>
+                    <a style={{ textDecoration: 'none', color: 'inherit' }} href={`/p/${props.post.id}`}>
+                        {props.post.title}
+                    </a>
+                </h2>
+                <span>{new Date(props.post.date).toDateString()}</span>
+                <p>{props.post.description}</p>
             </div>
-        </a>
+        </div>
     </li>
 )
 

@@ -65,13 +65,11 @@ class Page extends React.Component {
                     </div>
                     <TagList tags={this.props.post.tags} />
                     <h2>Related Articles</h2>
-                    <div className="container">
-                        {
-                            this.state.relatedPosts
+                    {
+                        this.state.relatedPosts
                             ? <PostList posts={this.state.relatedPosts} />
                             : null
-                        }
-                    </div>
+                    }
                 </div>
                 <div>Side</div>
             </Layout>

@@ -9,10 +9,3 @@ code {
     box-sizing: border-box;
     overflow: auto;
 }
-
-.container {
-    padding: 1em;
-    background-color: white;
-    border: 2px solid #cacaca;
-    border-radius: .5em;
-}
