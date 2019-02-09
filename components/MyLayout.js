@@ -19,14 +19,15 @@ const Layout = (props) => (
         <style jsx>
             {`
                 .main-grid {
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    grid-gap: 1em;
+                    display: flex;
+                    flex-direction: column;
                 }
 
-                @media only screen and (min-width: 1024px) {
+                @media only screen and (min-width: 1135px) {
                     .main-grid {
+                        display: grid;
                         grid-template-columns: 1fr 300px;
+                        grid-gap: 1em;
                     }
                 }
             `}

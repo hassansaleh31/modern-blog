@@ -1,17 +1,15 @@
-import Link from 'next/link'
-
 const PostCard = (props) => (
     <li>
-        <Link as={`/p/${props.post.id}`} href={`/post?id=${props.post.id}`}>
+        <a style={{ textDecoration: 'none', color: 'inherit' }} href={`/p/${props.post.id}`}>
             <div className="post-card">
                 <div style={{ backgroundImage: `url(${props.post.image})` }} className="post-card-image"></div>
                 <div className="post-card-content">
                     <h2>{props.post.title}</h2>
-                    <span>{props.post.date.toString()}</span>
-                    <p>{props.post.body}</p>
+                    <span>{new Date(props.post.date).toDateString()}</span>
+                    <p>{props.post.description}</p>
                 </div>
             </div>
-        </Link>
+        </a>
     </li>
 )
 

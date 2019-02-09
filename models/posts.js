@@ -22,28 +22,44 @@ That's it.  Pretty simple.  There's also a drop-down option in the upper right t
 
 ## Syntax highlighting
 
+### Javascript
+
+\`\`\`javascript
+const myArr = [0, 1, 2, 3, 4];
+
+const sum = myArr.reduce((a,b) => { return a + b}, 0);
+
+console.log(sum) // expected value: 10
 \`\`\`
-class MyClass {
 
-    public static myValue: string;
+### CSS
 
-    constructor(init: string) {
-        this.myValue = init;
-    }
-
+\`\`\`css
+body {
+    margin: 0;
+    backgroung-color: #fcfcfc;
 }
+\`\`\`
 
-import fs = require("fs");
+### HTML
 
-module MyModule {
-    export interface MyInterface extends Other {
-        myProperty: any;
-    }
-}
+\`\`\`html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chatster</title>
+  <base href="/">
 
-declare magicNumber number;
-
-myArray.forEach(() => { }); // fat arrow syntax
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <app-root>Loading Page...</app-root>
+</body>
+</html>
 \`\`\`
 
 [Marked]: https://github.com/markedjs/marked/
@@ -53,7 +69,7 @@ myArray.forEach(() => { }); // fat arrow syntax
         author: 'Hassan Saleh',
         category: 'Design',
         tags: ['react', 'css'],
-        image: 'https://picsum.photos/300?random',
+        image: 'https://picsum.photos/1920/1080?random',
         view: 1573,
         likes: 56,
         comments: 12,
@@ -74,7 +90,8 @@ myArray.forEach(() => { }); // fat arrow syntax
         likes: 56,
         comments: 12,
         previous: 1,
-        next: 3
+        next: 3,
+        comments: []
     },
     {
         id: 3,
@@ -138,6 +155,15 @@ class PostsMethods {
     getPost(id) {
         return new Promise(resolve => {
             const post = blogPosts.find(post => post.id == id)
+            setTimeout(() => {
+                resolve(post)
+            }, 500);
+        })
+    }
+
+    getRelated(id) {
+        return new Promise(resolve => {
+            const post = blogPosts.filter(post => post.id != id)
             setTimeout(() => {
                 resolve(post)
             }, 500);

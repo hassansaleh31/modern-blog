@@ -5,4 +5,14 @@ code {
     display: inline-block;
     border-radius: .5em;
     box-shadow: 0 0 1em #00132f6e;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.container {
+    padding: 1em;
+    background-color: white;
+    border: 2px solid #cacaca;
+    border-radius: .5em;
 }
