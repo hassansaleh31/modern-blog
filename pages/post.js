@@ -2,6 +2,7 @@ import Layout from '../components/MyLayout.js'
 import Posts from '../models/posts'
 import TagList from '../components/TagList'
 import PostList from '../components/PostList'
+import SideContent from '../components/SideContent'
 import MarkdownText from '../components/MarkdownText'
 import Head from 'next/head';
 
@@ -51,7 +52,6 @@ class Page extends React.Component {
                     <title>{this.props.post.title}</title>
                     <meta name="description" content={this.props.post.description}></meta>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                    {/* <meta http-equiv="X-UA-Compatible" content="ie=edge"></meta> */}
                     <link href="/static/monokai-sublime.css" rel="stylesheet" />
                     <link href="/static/post-page.css" rel="stylesheet" />
                 </Head>
@@ -62,7 +62,20 @@ class Page extends React.Component {
                         <p>Posted on {new Date(this.props.post.date).toDateString()}</p>
                         <img src={this.props.post.image} alt={this.props.post.title} style={{ maxWidth: '100%', maxHeight: '500px', boxShadow: '0 0 1em #a7a7a78a' }} />
                         <MarkdownText text={this.props.post.body} />
+                        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                            {
+                                this.props.post.previous
+                                    ? (<a style={{ justifySelf: 'flex-start' }} href={`/p/${this.props.post.previous}`}>Previous Article</a>)
+                                    : null
+                            }
+                            {
+                                this.props.post.next
+                                    ? (<a style={{ justifySelf: 'flex-end' }} href={`/p/${this.props.post.next}`}>Next Article</a>)
+                                    : null
+                            }
+                        </div>
                     </div>
+                    <h3>Tags:</h3>
                     <TagList tags={this.props.post.tags} />
                     <h2>Related Articles</h2>
                     {
@@ -71,7 +84,13 @@ class Page extends React.Component {
                             : null
                     }
                 </div>
-                <div>Side</div>
+                <div style={{ padding: '1em' }}>
+                    {
+                        this.state.relatedPosts
+                            ? <SideContent popular={this.state.relatedPosts} />
+                            : null
+                    }
+                </div>
             </Layout>
         )
     }

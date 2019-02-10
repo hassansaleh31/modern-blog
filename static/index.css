@@ -12,6 +12,17 @@ body {
     border-radius: .5em;
 }
 
+a {
+    color: #303f9f;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 200ms ease-out;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
 .post-list {
     list-style: none;
     display: grid;
@@ -19,18 +30,6 @@ body {
     grid-gap: 1em;
     padding: 0;
 }
-
-/* @media only screen and (min-width: 662px) {
-    .post-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media only screen and (min-width: 1250px) {
-    .post-list {
-        grid-template-columns: repeat(4, 1fr);
-    }
-} */
 
 .post-card {
     background-color: white;

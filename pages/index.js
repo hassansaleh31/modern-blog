@@ -1,6 +1,7 @@
 import Layout from '../components/MyLayout.js'
 import HomeLatestPost from '../components/HomeLatestPost'
 import PostList from '../components/PostList'
+import SideContent from '../components/SideContent'
 import Posts from '../models/posts'
 import Head from 'next/head'
 
@@ -16,8 +17,8 @@ const Index = (props) => (
             <h2 style={{ borderBottom: '1px solid #cecece' }}>Latest Posts</h2>
             <PostList posts={props.posts.slice(1)} />
         </div>
-        <div>
-            Side
+        <div style={{ padding: '1em' }}>
+            <SideContent popular={props.posts.slice(1)} />
         </div>
     </Layout>
 )

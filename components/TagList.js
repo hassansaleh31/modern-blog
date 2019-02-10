@@ -5,6 +5,7 @@ export default (props) => (
                 display: 'inline-block',
                 padding: '1em',
                 marginRight: '1em',
+                marginBottom: '.5em',
                 backgroundColor: '#001335',
                 color: '#fcfcfc',
                 borderRadius: '0.5em',

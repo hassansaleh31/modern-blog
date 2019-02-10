@@ -68,7 +68,7 @@ body {
         date: new Date('2019-02-06'),
         author: 'Hassan Saleh',
         category: 'Design',
-        tags: ['react', 'css'],
+        tags: ['react', 'css','react', 'css','react', 'css','react', 'css','react', 'css','react', 'css','react', 'css'],
         image: 'https://picsum.photos/1920/1080?random',
         view: 1573,
         likes: 56,
