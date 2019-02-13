@@ -67,11 +67,9 @@ body {
         `,
         date: new Date('2019-02-06'),
         author: 'Hassan Saleh',
-        category: 'Design',
-        tags: ['react', 'css','react', 'css','react', 'css','react', 'css','react', 'css','react', 'css','react', 'css'],
+        tags: ['react', 'css', 'react', 'css', 'react', 'css', 'react', 'css', 'react', 'css', 'react', 'css', 'react', 'css'],
         image: 'https://picsum.photos/1920/1080?random',
         view: 1573,
-        likes: 56,
         comments: 12,
         previous: null,
         next: 2
@@ -83,11 +81,9 @@ body {
         body: 'This is blog post 2',
         date: new Date('2019-02-06T11:21:23.597Z'),
         author: 'Hassan Saleh',
-        category: 'Design',
         tags: ['react', 'css'],
         image: 'https://picsum.photos/1920/1080?random',
         view: 1573,
-        likes: 56,
         comments: 12,
         previous: 1,
         next: 3,
@@ -100,11 +96,9 @@ body {
         body: 'This is blog post 3',
         date: new Date('2019-02-06T11:21:23.597Z'),
         author: 'Hussam Saleh',
-        category: 'Design',
         tags: ['react', 'css'],
         image: 'https://picsum.photos/1920/1080?random',
         view: 1573,
-        likes: 56,
         comments: 12,
         previous: 2,
         next: 4
@@ -116,11 +110,9 @@ body {
         body: 'This is blog post 4',
         date: new Date('2019-02-06T11:21:23.597Z'),
         author: 'Hassan Saleh',
-        category: 'Design',
         tags: ['react', 'css'],
         image: 'https://picsum.photos/1920/1080?random',
         view: 1573,
-        likes: 56,
         comments: 12,
         previous: 3,
         next: 5
@@ -132,11 +124,9 @@ body {
         body: 'This is blog post 5',
         date: new Date('2019-02-06T11:21:23.597Z'),
         author: 'Hussam Saleh',
-        category: 'Design',
         tags: ['react', 'css'],
         image: 'https://picsum.photos/1920/1080?random',
         view: 1573,
-        likes: 56,
         comments: 12,
         previous: 4,
         next: null
@@ -144,29 +134,21 @@ body {
 ]
 
 class PostsMethods {
-    getPosts() {
+    async getPosts() {
         return new Promise(resolve => {
-            setTimeout(() => {
-                resolve(blogPosts)
-            }, 500);
+            resolve(blogPosts)
         })
     }
 
-    getPost(id) {
+    async getPost(id) {
         return new Promise(resolve => {
-            const post = blogPosts.find(post => post.id == id)
-            setTimeout(() => {
-                resolve(post)
-            }, 500);
+            resolve(blogPosts.find(x => x.id == id))
         })
     }
 
-    getRelated(id) {
+    async getRelated(id) {
         return new Promise(resolve => {
-            const post = blogPosts.filter(post => post.id != id)
-            setTimeout(() => {
-                resolve(post)
-            }, 500);
+            resolve(blogPosts.filter(x => x.id !== id))
         })
     }
 

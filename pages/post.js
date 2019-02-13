@@ -18,7 +18,6 @@ class Page extends React.Component {
     static async getInitialProps(context) {
         const id = context.query.id
         const post = await Posts.getPost(id)
-
         return { post }
     }
 
@@ -77,10 +76,12 @@ class Page extends React.Component {
                     </div>
                     <h3>Tags:</h3>
                     <TagList tags={this.props.post.tags} />
-                    <h2>Related Articles</h2>
+                    <h2>More Articles</h2>
                     {
                         this.state.relatedPosts
-                            ? <PostList posts={this.state.relatedPosts} />
+                            ? this.state.relatedPosts.length > 0
+                                ? <PostList posts={this.state.relatedPosts} />
+                                : <p>No more articles</p>
                             : null
                     }
                 </div>

@@ -3,8 +3,8 @@ const highlightJs = require('highlight.js')
 
 marked.setOptions({
     renderer: new marked.Renderer(),
-    highlight: function (code) {
-        return highlightJs.highlightAuto(code).value;
+    highlight: function (code, language) {
+        return language ? highlightJs.highlight(language, code).value : highlightJs.highlightAuto(code).value;
     },
     pedantic: false,
     gfm: true,
