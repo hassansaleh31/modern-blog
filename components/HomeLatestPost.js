@@ -1,9 +1,9 @@
 export default (props) => (
-    <a href={`/p/${props.post.id}`}>
+    <a href={`/p/${props.post.article_id}`}>
         <div id="latest-post" style={{ backgroundImage: `url(${props.post.image})` }}>
             <div id="latest-post-content" style={{ padding: '1em' }}>
                 <h1 style={{ margin: 0, marginBottom: '1em' }}>{props.post.title}</h1>
-                <span>{new Date(props.post.date).toDateString()}</span>
+                <span>{new Date(props.post.created_at).toDateString()}</span>
             </div>
             <style jsx>
                 {`

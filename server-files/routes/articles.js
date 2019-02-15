@@ -10,7 +10,16 @@ class ArticlesRoute {
     configure() {
         this.router.get('/', (req, res) => {
             this.articlesModel.getArticles(req.query)
-                .then(articles => res.json({ success: true, articles }))
+                .then(articles => res.json({ success: true, body: articles }))
+                .catch(e => {
+                    console.error(e)
+                    res.sendStatus(500)
+                })
+        })
+
+        this.router.get('/popular', (req, res) => {
+            this.articlesModel.getPopularArticles(req.query)
+                .then(articles => res.json({ success: true, body: articles }))
                 .catch(e => {
                     console.error(e)
                     res.sendStatus(500)
@@ -19,7 +28,7 @@ class ArticlesRoute {
 
         this.router.get('/:id', (req, res) => {
             this.articlesModel.getArticle(req.params.id)
-                .then(article => article ? res.json({ success: true, article }) : res.sendStatus(404))
+                .then(article => article.article ? res.json({ success: true, body: article }) : res.sendStatus(404))
                 .catch(e => {
                     console.error(e)
                     res.sendStatus(500)

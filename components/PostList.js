@@ -3,7 +3,7 @@ const PostList = (props) => (
     <ul className="post-list">
         {
             props.posts.map((post) => (
-                <PostCard key={post.id} post={post} />
+                <PostCard key={post.article_id} post={post} />
             ))
         }
     </ul>

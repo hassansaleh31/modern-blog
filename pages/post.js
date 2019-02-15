@@ -10,7 +10,8 @@ class Page extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            relatedPosts: null
+            relatedPosts: null,
+            popularPosts: null
         }
         // this.handleClick = this.handleClick.bind(this)
     }
@@ -18,26 +19,28 @@ class Page extends React.Component {
     static async getInitialProps(context) {
         const id = context.query.id
         const post = await Posts.getPost(id)
-        return { post }
+        return post
     }
 
     componentDidMount() {
-        Posts.getRelated(this.props.post.id)
+        Posts.getPopular()
             .then(res => {
                 this.setState(() => ({
-                    relatedPosts: res
+                    relatedPosts: res,
+                    popularPosts: res
                 }))
             })
             .catch(e => {
                 console.error(e)
                 this.setState(() => ({
-                    relatedPosts: []
+                    relatedPosts: [],
+                    popularPosts: []
                 }))
             })
     }
 
     // handleClick() {
-    //     const id = this.props.post.id
+    //     const id = this.props.body.article.id
     //     const didDelete = Posts.deletePost(id)
     //     if (didDelete) {
     //         Router.push('/')
@@ -48,34 +51,34 @@ class Page extends React.Component {
         return (
             <Layout>
                 <Head>
-                    <title>{this.props.post.title}</title>
-                    <meta name="description" content={this.props.post.description}></meta>
+                    <title>{this.props.body.article.title}</title>
+                    <meta name="description" content={this.props.body.article.description}></meta>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                     <link href="/static/monokai-sublime.css" rel="stylesheet" />
                     <link href="/static/post-page.css" rel="stylesheet" />
                 </Head>
                 <div style={{ margin: '1em', maxWidth: '100vw' }}>
                     <div className="container">
-                        <h1>{this.props.post.title}</h1>
-                        <p>By {this.props.post.author}</p>
-                        <p>Posted on {new Date(this.props.post.date).toDateString()}</p>
-                        <img src={this.props.post.image} alt={this.props.post.title} style={{ maxWidth: '100%', maxHeight: '500px', boxShadow: '0 0 1em #a7a7a78a' }} />
-                        <MarkdownText text={this.props.post.body} />
+                        <h1>{this.props.body.article.title}</h1>
+                        <p>By {this.props.body.article.author}</p>
+                        <p>Posted on {new Date(this.props.body.article.created_at).toDateString()}</p>
+                        <img src={this.props.body.article.image} alt={this.props.body.article.title} style={{ maxWidth: '100%', maxHeight: '500px', boxShadow: '0 0 1em #a7a7a78a' }} />
+                        <MarkdownText text={this.props.body.article.body} />
                         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                             {
-                                this.props.post.previous
-                                    ? (<a style={{ justifySelf: 'flex-start' }} href={`/p/${this.props.post.previous}`}>Previous Article</a>)
+                                this.props.body.article.previous
+                                    ? (<a style={{ justifySelf: 'flex-start' }} href={`/p/${this.props.body.article.previous}`}>Previous Article</a>)
                                     : null
                             }
                             {
-                                this.props.post.next
-                                    ? (<a style={{ justifySelf: 'flex-end' }} href={`/p/${this.props.post.next}`}>Next Article</a>)
+                                this.props.body.article.next
+                                    ? (<a style={{ justifySelf: 'flex-end' }} href={`/p/${this.props.body.article.next}`}>Next Article</a>)
                                     : null
                             }
                         </div>
                     </div>
                     <h3>Tags:</h3>
-                    <TagList tags={this.props.post.tags} />
+                    <TagList tags={this.props.body.article.tags} />
                     <h2>More Articles</h2>
                     {
                         this.state.relatedPosts

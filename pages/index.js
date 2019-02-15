@@ -12,22 +12,30 @@ const Index = (props) => (
             <meta name="description" content="Full stack web development blog"></meta>
             <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         </Head>
+        {
+            props.body.articles.length > 0
+                ? (
+                    <div style={{ padding: '1em' }}>
+                        <HomeLatestPost post={props.body.articles[0]} />
+                        <h2 style={{ borderBottom: '1px solid #cecece' }}>Latest Posts</h2>
+                        {
+                            props.body.articles.length > 1
+                                ? <PostList posts={props.body.articles.slice(1)} />
+                                : <h3>No more posts</h3>
+                        }
+                    </div>
+                )
+                : <h2>There are no articles to show</h2>
+        }
         <div style={{ padding: '1em' }}>
-            <HomeLatestPost post={props.posts[0]} />
-            <h2 style={{ borderBottom: '1px solid #cecece' }}>Latest Posts</h2>
-            <PostList posts={props.posts.slice(1)} />
-        </div>
-        <div style={{ padding: '1em' }}>
-            <SideContent popular={props.posts.slice(1)} />
+            <SideContent popular={[]} />
         </div>
     </Layout>
 )
 
 Index.getInitialProps = async () => {
     const data = await Posts.getPosts()
-    return {
-        posts: data
-    }
+    return data
 }
 
 export default Index
