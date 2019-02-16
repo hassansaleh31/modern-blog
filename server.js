@@ -9,6 +9,8 @@ const handle = app.getRequestHandler()
 
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+const compression = require('compression');
 const myDb = require('./server-files/config/db')
 
 // next js initialization
@@ -20,6 +22,8 @@ app.prepare()
         server.use(passport.initialize());
         server.use(passport.session());
         server.use(bodyParser.json());
+        server.use(cors());
+        server.use(compression());
         require('./server-files/config/authentication')(passport, myDb);
 
         // routes configuration
