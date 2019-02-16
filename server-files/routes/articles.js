@@ -26,6 +26,15 @@ class ArticlesRoute {
                 })
         })
 
+        this.router.get('/tag/:name', (req, res) => {
+            this.articlesModel.getArticlesByTag(req.params.name, req.query)
+                .then(body => res.json({ success: true, body }))
+                .catch(e => {
+                    console.error(e)
+                    res.sendStatus(500)
+                })
+        })
+
         this.router.get('/:id', (req, res) => {
             this.articlesModel.getArticle(req.params.id)
                 .then(article => article.article ? res.json({ success: true, body: article }) : res.sendStatus(404))

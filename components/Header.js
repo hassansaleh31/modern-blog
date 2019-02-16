@@ -5,14 +5,16 @@ const linkStyle = {
 }
 
 const Header = () => (
-    <div style={{ padding: '1em' }}>
-        <Link href="/">
-            <a style={linkStyle}>Home</a>
-        </Link>
-        <Link href="/about">
-            <a style={linkStyle}>About</a>
-        </Link>
-    </div>
+    <header>
+        <nav style={{ padding: '1em' }}>
+            <Link href="/">
+                <a style={linkStyle}>Home</a>
+            </Link>
+            <Link href="/about">
+                <a style={linkStyle}>About</a>
+            </Link>
+        </nav>
+    </header>
 )
 
 export default Header

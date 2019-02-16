@@ -95,6 +95,43 @@ class ArticlesModule {
         }
     }
 
+    async getArticlesByTag(tag, params) {
+        const count = Number(params.count || 50);
+        const page = Number(params.page || 0);
+        const start = new Date().getTime();
+        if (!tag) throw new Error('tag is missing from request');
+        const res = await this.db.query(
+            `
+                SELECT
+                t1.*
+                FROM
+                (
+                    SELECT
+                    articles.article_id,
+                    articles.author,
+                    articles.title,
+                    articles.description,
+                    articles.created_at,
+                    articles.image,
+                    COUNT(article_views.view_id) AS views
+                    FROM articles LEFT JOIN article_views USING (article_id)
+                    GROUP BY articles.article_id
+                ) t1
+                LEFT JOIN article_tags
+                USING (article_id)
+                WHERE article_tags.tag_name LIKE $1
+                LIMIT $2 OFFSET $3;
+            `,
+            [`%${tag}%`, count, count * page]
+        )
+        const end = new Date().getTime();
+        return {
+            articles: res.rows,
+            count: res.rowCount,
+            excutionTime: `${end - start} ms`
+        }
+    }
+
     // async getRelatedArticles(tags) {
 
     // }

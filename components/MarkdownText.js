@@ -10,7 +10,7 @@ marked.setOptions({
     gfm: true,
     tables: true,
     breaks: false,
-    sanitize: true,
+    sanitize: false,
     smartLists: true,
     smartypants: false,
     xhtml: false
