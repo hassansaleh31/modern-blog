@@ -1,4 +1,4 @@
-version: "3.2"
+version: "2.3"
 services:
   db:
     image: postgres
@@ -9,6 +9,8 @@ services:
       - 5432:5432
     env_file:
       - .env
+    mem_limit: 300m
+    mem_reservation: 100m
   adminer:
     image: adminer
     restart: always
@@ -16,3 +18,18 @@ services:
       - 8080:8080
     depends_on:
       - db
+  server:
+    image: hassansaleh-blog
+    build: .
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    environment:
+      - PGHOST=db
+      - NODE_ENV=production
+    mem_limit: 300m
+    mem_reservation: 100m
