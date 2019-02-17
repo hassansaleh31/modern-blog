@@ -6,7 +6,7 @@ class ApiModel {
         // this.baseUrl = process.env.NODE_ENV === 'production' ? 'https://hassansaleh.info/api' : 'http://localhost:3000/api'
         // this.baseUrl = window !== undefined ? `${window.location.hostname}/api` : 'http://localhost:3000/api'
         if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
-            this.baseUrl = `${window.location.hostname}/api`
+            this.baseUrl = `/api`
         } else {
             this.baseUrl = 'http://localhost:3000/api'
         }
