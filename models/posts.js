@@ -1,45 +1,29 @@
-import fetch from 'isomorphic-unfetch';
+import api from './apiModel';
 
 class PostsMethods {
     async getPosts() {
-        return new Promise((resolve, reject) => {
-            fetch('http://localhost:3000/api/articles')
-                .then(res => res.json())
-                .then(res => resolve(res))
-                .catch(e => reject(e))
-        })
+        const res = await api.get('/articles');
+        return res;
     }
 
     async getPost(id) {
-        return new Promise((resolve, reject) => {
-            fetch(`http://localhost:3000/api/articles/${id}`)
-                .then(res => res.json())
-                .then(res => resolve(res))
-                .catch(e => reject(e))
-        })
+        const res = await api.get(`/articles/${id}`);
+        return res;
     }
 
     async getRelated(id) {
-        return new Promise((resolve, reject) => {
-            fetch('http://localhost:3000/api/articles/popular')
-                .then(res => res.json())
-                .then(res => resolve(res.body.articles))
-                .catch(e => reject(e))
-        })
+        const res = await api.get('/articles/popular/');
+        return res;
     }
 
     async getPopular() {
-        return new Promise((resolve, reject) => {
-            fetch('http://localhost:3000/api/articles/popular')
-                .then(res => res.json())
-                .then(res => resolve(res.body.articles))
-                .catch(e => reject(e))
-        })
+        const res = await api.get('/articles/popular/');
+        return res;
     }
 
-    deletePost(id) {
-        blogPosts = blogPosts.filter(post => post != id)
-        return true;
+    async getByTag(tag) {
+        const res = await api.get(`/articles/tag/${tag}`);
+        return res;
     }
 }
 

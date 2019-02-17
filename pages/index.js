@@ -13,14 +13,14 @@ const Index = (props) => (
             <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         </Head>
         {
-            props.body.articles.length > 0
+            props.latest.length > 0
                 ? (
                     <div style={{ padding: '1em' }}>
-                        <HomeLatestPost post={props.body.articles[0]} />
+                        <HomeLatestPost post={props.latest[0]} />
                         <h2 style={{ borderBottom: '1px solid #cecece' }}>Latest Posts</h2>
                         {
-                            props.body.articles.length > 1
-                                ? <PostList posts={props.body.articles.slice(1)} />
+                            props.latest.length > 1
+                                ? <PostList posts={props.latest.slice(1)} />
                                 : <h3>No more posts</h3>
                         }
                     </div>
@@ -28,14 +28,15 @@ const Index = (props) => (
                 : <h2>There are no articles to show</h2>
         }
         <div style={{ padding: '1em' }}>
-            <SideContent popular={[]} />
+            <SideContent popular={props.popular} />
         </div>
     </Layout>
 )
 
 Index.getInitialProps = async () => {
-    const data = await Posts.getPosts()
-    return data
+    const latest = await Posts.getPosts()
+    const popular = await Posts.getPopular()
+    return { latest: latest.articles, popular: popular.articles }
 }
 
 export default Index
