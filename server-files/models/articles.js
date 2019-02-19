@@ -132,9 +132,42 @@ class ArticlesModule {
         }
     }
 
-    // async getRelatedArticles(tags) {
-
-    // }
+    async getRelatedArticles(article_id) {
+        const count = 8;
+        const start = new Date().getTime();
+        const res = await this.db.query(
+            `
+                SELECT
+                DISTINCT t1.article_id,
+                t1.*
+                FROM
+                (
+                    SELECT
+                    articles.article_id,
+                    articles.author,
+                    articles.title,
+                    articles.description,
+                    articles.created_at,
+                    articles.image,
+                    COUNT(article_views.view_id) AS views
+                    FROM articles LEFT JOIN article_views USING (article_id)
+                    GROUP BY articles.article_id
+                ) t1
+                LEFT JOIN article_tags
+                USING (article_id)
+                WHERE article_id != $1
+                AND article_tags.tag_name IN (SELECT tag_name from article_tags WHERE article_id = $1)
+                LIMIT $2;
+            `,
+            [article_id, count]
+        )
+        const end = new Date().getTime();
+        return {
+            articles: res.rows,
+            count: res.rowCount,
+            excutionTime: `${end - start} ms`
+        }
+    }
 
     async getArticlesCount() {
         const res = await this.db.query(
@@ -160,6 +193,19 @@ class ArticlesModule {
         const end = new Date().getTime();
         return {
             article,
+            excutionTime: `${end - start} ms`
+        }
+    }
+
+    async incrementViews(article_id, ip_address) {
+        const start = new Date().getTime();
+        const res = await this.db.query(
+            'INSERT INTO article_views (article_id, view_ip) VALUES ($1, $2) RETURNING *;',
+            [article_id, ip_address]
+        )
+        const end = new Date().getTime();
+        return {
+            success: (res.rowCount > 0 && res.rows[0].view_id) ? true : false,
             excutionTime: `${end - start} ms`
         }
     }

@@ -26,6 +26,27 @@ class ArticlesRoute {
                 })
         })
 
+        this.router.get('/related/:id', (req, res) => {
+            this.articlesModel.getRelatedArticles(req.params.id)
+                .then(articles => res.json({ success: true, body: articles }))
+                .catch(e => {
+                    console.error(e)
+                    res.sendStatus(500)
+                })
+        })
+
+        this.router.post('/view', (req, res) => {
+            const article_id = req.body.id;
+            const ip_address = req.ip;
+            if (!article_id) return res.json({ success: false, msg: 'Article ID is missing from request' })
+            this.articlesModel.incrementViews(article_id, ip_address)
+                .then(body => res.json({ success: body.success, body }))
+                .catch(e => {
+                    console.error(e)
+                    res.statusCode(500)
+                })
+        })
+
         this.router.get('/tag/:name', (req, res) => {
             this.articlesModel.getArticlesByTag(req.params.name, req.query)
                 .then(body => res.json({ success: true, body }))

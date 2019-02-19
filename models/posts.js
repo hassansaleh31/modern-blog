@@ -12,7 +12,7 @@ class PostsMethods {
     }
 
     async getRelated(id) {
-        const res = await api.get('/articles/popular/');
+        const res = await api.get(`/articles/related/${id}`);
         return res;
     }
 
@@ -24,6 +24,11 @@ class PostsMethods {
     async getByTag(tag) {
         const res = await api.get(`/articles/tag/${tag}`);
         return res;
+    }
+
+    async incrementViews(id) {
+        const res = await api.post('/articles/view', { id })
+        return res
     }
 }
 

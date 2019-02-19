@@ -20,6 +20,14 @@ class ApiModel {
         return data.body;
     }
 
+    async post(path, body) {
+        const res = await axios.post(`${this.baseUrl}${path}`, body);
+        // const data = await res.json();
+        const data = res.data;
+        if (!data.success) throw new Error(500);
+        return data.body;
+    }
+
 }
 
 export default new ApiModel()
