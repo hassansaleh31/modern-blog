@@ -37,7 +37,7 @@ class ArticlesRoute {
 
         this.router.post('/view', (req, res) => {
             const article_id = req.body.id;
-            const ip_address = req.ip;
+            const ip_address = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
             if (!article_id) return res.json({ success: false, msg: 'Article ID is missing from request' })
             this.articlesModel.incrementViews(article_id, ip_address)
                 .then(body => res.json({ success: body.success, body }))

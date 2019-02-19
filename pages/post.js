@@ -5,6 +5,7 @@ import PostList from '../components/PostList'
 import SideContent from '../components/SideContent'
 import MarkdownText from '../components/MarkdownText'
 import ShareButtons from '../components/ShareButtons'
+import ArticleAd from '../components/ArticleAd'
 import Head from 'next/head';
 
 class Page extends React.Component {
@@ -48,9 +49,9 @@ class Page extends React.Component {
                 <div style={{ margin: '1em', maxWidth: '100vw' }}>
                     <div className="container">
                         <h1>{this.props.article.title}</h1>
-                        <p>By {this.props.article.author}</p>
                         <p>Posted on {new Date(this.props.article.created_at).toDateString()}</p>
                         <p>{this.props.article.description}</p>
+                        <ArticleAd />
                         <img src={this.props.article.image} alt={this.props.article.title} style={{ maxWidth: '100%', maxHeight: '500px', boxShadow: '0 0 1em #a7a7a78a' }} />
                         <ShareButtons url={`https://hassansaleh.info/p/${this.props.article.article_id}`} media={this.props.article.image}></ShareButtons>
                         <MarkdownText text={this.props.article.body} />
@@ -69,7 +70,7 @@ class Page extends React.Component {
                     </div>
                     <h3>Tags:</h3>
                     <TagList tags={this.props.article.tags} />
-                    <h2>More Articles</h2>
+                    <h2>Related Articles</h2>
                     {
                         this.props.related
                             ? this.props.related.length > 0

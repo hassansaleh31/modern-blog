@@ -2,3 +2,4 @@
 .next
 /postgres-data
 .env
+config.js

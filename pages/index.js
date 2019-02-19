@@ -17,7 +17,7 @@ const Index = (props) => (
                 ? (
                     <div style={{ padding: '1em' }}>
                         <HomeLatestPost post={props.latest[0]} />
-                        <h2 style={{ borderBottom: '1px solid #cecece' }}>Latest Posts</h2>
+                        <h2 style={{ borderBottom: '1px solid #cecece' }}>Latest Articles</h2>
                         {
                             props.latest.length > 1
                                 ? <PostList posts={props.latest.slice(1)} />

@@ -1,16 +1,23 @@
+import Link from 'next/link'
+import SideAd from './SideAd'
+
 export default ({ popular }) => (
     <div>
         <div className="container">
-            <h1>This is an ad</h1>
+            <SideAd />
         </div>
         <div className="container" style={{ margin: '1em 0' }}>
-            <h2 style={{ borderBottom: '1px solid #cecece', marginTop: '0' }}>Popular Posts</h2>
+            <h2 style={{ borderBottom: '1px solid #cecece', marginTop: '0' }}>Popular Articles</h2>
             {popular.map(post => (
-                <h3 key={post.article_id}><a href={`/p/${post.article_id}`}>{post.title}</a></h3>
+                <h3 key={post.article_id}>
+                    <Link href={`/p/${post.article_id}`}>
+                        <a>{post.title}</a>
+                    </Link>
+                </h3>
             ))}
         </div>
         <div className="container">
-            <h1>This is an ad</h1>
+            <SideAd />
         </div>
     </div>
 )
