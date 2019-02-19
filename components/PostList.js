@@ -1,8 +1,8 @@
 import PostCard from './PostCard'
-const PostList = (props) => (
+const PostList = ({ posts }) => (
     <ul className="post-list">
         {
-            props.posts.map((post) => (
+            posts.map((post) => (
                 <PostCard key={post.article_id} post={post} />
             ))
         }

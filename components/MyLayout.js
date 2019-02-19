@@ -6,15 +6,20 @@ import adsenseConfig from '../config'
 class MyLayout extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            mounted: false
-        }
     }
 
     componentDidMount() {
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: adsenseConfig.publisherId
-        })
+        if (document.querySelectorAll('.adsbygoogle').length > 0 && adsbygoogle) {
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: adsenseConfig.publisherId
+            })
+        }
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', adsenseConfig.analyticsCode);
 
         window.twttr = (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0],
