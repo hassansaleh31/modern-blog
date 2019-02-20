@@ -10,7 +10,6 @@ const Index = (props) => (
         <Head>
             <title>Hassan Saleh's Blog</title>
             <meta name="description" content="Full stack web development blog"></meta>
-            <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         </Head>
         {
             props.latest.length > 0

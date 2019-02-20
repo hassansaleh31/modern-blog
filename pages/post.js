@@ -42,7 +42,6 @@ class Page extends React.Component {
                     <meta property="article:published_time" content={this.props.article.created_at}></meta>
                     <meta property="article:author" content="Hassan Saleh"></meta>
                     <meta property="og:image" content={this.props.article.image}></meta>
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                     <link href="/static/monokai-sublime.css" rel="stylesheet" />
                     <link href="/static/post-page.css" rel="stylesheet" />
                 </Head>

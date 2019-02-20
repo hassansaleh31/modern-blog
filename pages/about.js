@@ -1,9 +1,14 @@
 import Layout from '../components/MyLayout';
 import Posts from '../models/posts'
 import PostList from '../components/PostList';
+import Head from 'next/head';
 
 const About = ({ popular }) => (
     <Layout>
+        <Head>
+            <title>Hassan Saleh</title>
+            <meta name="description" content="Full stack web developer from Tyre, Lebanon"></meta>
+        </Head>
         <div style={{ padding: '1em' }}>
             <h2>Hey, my name is Hassan Saleh.</h2>
             <h2>I'm a full stack web developer from Tyre, Lebanon.</h2>
