@@ -16,8 +16,5 @@ export default ({ popular }) => (
                 </h3>
             ))}
         </div>
-        <div className="container">
-            <SideAd />
-        </div>
     </div>
 )
