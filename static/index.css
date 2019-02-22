@@ -8,8 +8,23 @@ body {
 .container {
     padding: 1em;
     background-color: white;
-    border: 2px solid #cacaca;
-    border-radius: .5em;
+}
+
+@media only screen and (min-width: 1135px) {
+    .container {
+        border: 2px solid #cacaca;
+        border-radius: .5em;
+    }
+}
+
+.padded-on-mobile {
+    padding: 1em;
+}
+
+@media only screen and (min-width: 1135px) {
+    .padded-on-mobile {
+        padding: 0;
+    }
 }
 
 a {

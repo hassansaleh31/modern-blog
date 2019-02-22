@@ -11,30 +11,30 @@ import {
     RedditIcon
 } from 'react-share';
 
-export default ({ url, media }) => (
+export default ({ article, url }) => (
     <div style={{ padding: '1em', display: 'flex', flexDirection: 'row' }}>
         <div className="share-button-wrapper">
-            <FacebookShareButton url={url}>
+            <FacebookShareButton url={url} quote={article.title}>
                 <FacebookIcon size={32} round={true} />
             </FacebookShareButton>
         </div>
         <div className="share-button-wrapper">
-            <LinkedinShareButton url={url}>
+            <LinkedinShareButton url={url} title={article.title} description={article.description}>
                 <LinkedinIcon size={32} round={true} />
             </LinkedinShareButton>
         </div>
         <div className="share-button-wrapper">
-            <TwitterShareButton url={url}>
+            <TwitterShareButton url={url} title={article.title} via={article.author} hashtags={article.tags}>
                 <TwitterIcon size={32} round={true} />
             </TwitterShareButton>
         </div>
         <div className="share-button-wrapper">
-            <PinterestShareButton url={url} media={media}>
+            <PinterestShareButton url={url} media={article.image} description={article.title}>
                 <PinterestIcon size={32} round={true} />
             </PinterestShareButton>
         </div>
         <div className="share-button-wrapper">
-            <RedditShareButton url={url}>
+            <RedditShareButton url={url} title={article.title}>
                 <RedditIcon size={32} round={true} />
             </RedditShareButton>
         </div>

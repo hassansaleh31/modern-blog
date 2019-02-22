@@ -14,7 +14,7 @@ const Index = (props) => (
         {
             props.latest.length > 0
                 ? (
-                    <div style={{ padding: '1em' }}>
+                    <div className="main-content padded-on-mobile">
                         <HomeLatestPost post={props.latest[0]} />
                         <h2 style={{ borderBottom: '1px solid #cecece' }}>Latest Articles</h2>
                         {

@@ -9,3 +9,24 @@ code {
     box-sizing: border-box;
     overflow: auto;
 }
+
+p code {
+    padding: 0.5em;
+    max-width: 100%;
+    width: unset;
+}
+
+li code {
+    padding: 0.5em;
+    max-width: 100%;
+    width: unset;
+}
+
+blockquote {
+    background: #dbeef7;
+    margin: .5em 0;
+    padding: 0.5em;
+    border-radius: .2em;
+    margin-left: 1em;
+    color: #001335;
+}

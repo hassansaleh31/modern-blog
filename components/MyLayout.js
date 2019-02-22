@@ -53,6 +53,7 @@ class MyLayout extends React.Component {
                         .main-grid {
                             display: flex;
                             flex-direction: column;
+                            padding: 1em 0;
                         }
 
                         @media only screen and (min-width: 1135px) {

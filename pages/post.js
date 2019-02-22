@@ -45,14 +45,14 @@ class Page extends React.Component {
                     <link href="/static/monokai-sublime.css" rel="stylesheet" />
                     <link href="/static/post-page.css" rel="stylesheet" />
                 </Head>
-                <div style={{ margin: '1em', maxWidth: '100vw' }}>
+                <div className="main-content">
                     <div className="container">
                         <h1>{this.props.article.title}</h1>
                         <p>Posted on {new Date(this.props.article.created_at).toDateString()}</p>
                         <p>{this.props.article.description}</p>
-                        <ArticleAd />
                         <img src={this.props.article.image} alt={this.props.article.title} style={{ maxWidth: '100%', maxHeight: '500px', boxShadow: '0 0 1em #a7a7a78a' }} />
-                        <ShareButtons url={`https://hassansaleh.info/p/${this.props.article.article_id}`} media={this.props.article.image}></ShareButtons>
+                        <ShareButtons article={this.props.article} url={`https://hassansaleh.info/p/${this.props.article.article_id}`}></ShareButtons>
+                        <ArticleAd />
                         <MarkdownText text={this.props.article.body} />
                         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                             {
@@ -67,18 +67,20 @@ class Page extends React.Component {
                             }
                         </div>
                     </div>
-                    <h3>Tags:</h3>
-                    <TagList tags={this.props.article.tags} />
-                    <h2>Related Articles</h2>
-                    {
-                        this.props.related
-                            ? this.props.related.length > 0
-                                ? <PostList posts={this.props.related} />
-                                : <p>No more articles</p>
-                            : null
-                    }
+                    <div className="padded-on-mobile">
+                        <h3>Tags:</h3>
+                        <TagList tags={this.props.article.tags} />
+                        <h2>Related Articles</h2>
+                        {
+                            this.props.related
+                                ? this.props.related.length > 0
+                                    ? <PostList posts={this.props.related} />
+                                    : <p>No more articles</p>
+                                : null
+                        }
+                    </div>
                 </div>
-                <div style={{ padding: '1em' }}>
+                <div className="side-content">
                     {
                         this.props.popular
                             ? <SideContent popular={this.props.popular} />
