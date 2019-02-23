@@ -44,6 +44,22 @@ class Page extends React.Component {
                     <meta property="og:image" content={this.props.article.image}></meta>
                     <link href="/static/monokai-sublime.css" rel="stylesheet" />
                     <link href="/static/post-page.css" rel="stylesheet" />
+                    <script type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: `{
+                                "@context": "http://schema.org",
+                                "@type": "Article",
+                                "name": "${this.props.article.title}",
+                                "author": {
+                                    "@type": "Person",
+                                    "name": "Hassan Saleh"
+                                },
+                                "datePublished": "${this.props.article.created_at}",
+                                "image": "${this.props.article.image}",
+                                "articleBody": "${this.props.article.description}",
+                                "url": "https://hassansaleh.info/p/${this.props.article.article_id}"
+                            }`
+                        }} />
                 </Head>
                 <div className="main-content">
                     <div className="container">
