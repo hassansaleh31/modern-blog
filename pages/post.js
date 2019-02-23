@@ -46,23 +46,23 @@ class Page extends React.Component {
                     <link href="/static/post-page.css" rel="stylesheet" />
                     <script type="application/ld+json"
                         dangerouslySetInnerHTML={{
-                            __html: `{
+                            __html: JSON.stringify({
                                 "@context": "http://schema.org",
                                 "@type": "Article",
-                                "headline": "${this.props.article.title}",
+                                "headline": this.props.article.title,
                                 "author": {
                                     "@type": "Person",
                                     "name": "Hassan Saleh"
                                 },
-                                "datePublished": "${this.props.article.created_at}",
-                                "dateModified": "${this.props.article.created_at}",
-                                "image": "${this.props.article.image}",
-                                "articleBody": "${this.props.article.body}",
-                                "url": "https://hassansaleh.info/p/${this.props.article.article_id}",
-                                "description": "${this.props.article.description}",
-                                "keywords": "${this.props.article.tags.join(' ')}",
+                                "datePublished": this.props.article.created_at,
+                                "dateModified": this.props.article.created_at,
+                                "image": this.props.article.image,
+                                "articleBody": this.props.article.body,
+                                "url": `https://hassansaleh.info/p/${this.props.article.article_id}`,
+                                "description": this.props.article.description,
+                                "keywords": this.props.article.tags.join(' '),
                                 "mainEntityOfPage": "https://hassansaleh.info"
-                            }`
+                            })
                         }} />
                 </Head>
                 <div className="main-content">
