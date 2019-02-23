@@ -49,15 +49,19 @@ class Page extends React.Component {
                             __html: `{
                                 "@context": "http://schema.org",
                                 "@type": "Article",
-                                "name": "${this.props.article.title}",
+                                "headline": "${this.props.article.title}",
                                 "author": {
                                     "@type": "Person",
                                     "name": "Hassan Saleh"
                                 },
                                 "datePublished": "${this.props.article.created_at}",
+                                "dateModified": "${this.props.article.created_at}",
                                 "image": "${this.props.article.image}",
-                                "articleBody": "${this.props.article.description}",
-                                "url": "https://hassansaleh.info/p/${this.props.article.article_id}"
+                                "articleBody": "${this.props.article.body}",
+                                "url": "https://hassansaleh.info/p/${this.props.article.article_id}",
+                                "description": "${this.props.article.description}",
+                                "keywords": "${this.props.article.tags.join(' ')}",
+                                "mainEntityOfPage": "https://hassansaleh.info"
                             }`
                         }} />
                 </Head>
