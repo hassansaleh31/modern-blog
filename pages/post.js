@@ -88,14 +88,17 @@ class Page extends React.Component {
                         </div>
                     </div>
                     <div className="padded-on-mobile">
-                        <h3>Tags:</h3>
                         <TagList tags={this.props.article.tags} />
-                        <h2>Related Articles</h2>
                         {
                             this.props.related
                                 ? this.props.related.length > 0
-                                    ? <PostList posts={this.props.related} />
-                                    : <p>No more articles</p>
+                                    ? (
+                                        <div>
+                                            <h2>Related Articles</h2>
+                                            <PostList posts={this.props.related} />
+                                        </div>
+                                    )
+                                    : null
                                 : null
                         }
                     </div>

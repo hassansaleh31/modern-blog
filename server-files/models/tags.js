@@ -21,6 +21,10 @@ class TagsModel {
         )
         return res.rows.map(x => x.tag_name)
     }
+
+    async getPopulatArticleTags() {
+        // TODO: get popular tags
+    }
 }
 
 module.exports = (db) => new TagsModel(db)
