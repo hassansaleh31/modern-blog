@@ -4,6 +4,7 @@ const jsonwebtoken = require('jsonwebtoken');
 const adminModel = require('../models/admins');
 
 const articleRoutes = require('./articles');
+const affiliateLinksRoute = require('./affiliateLinks')
 const adminRoute = require('./admin');
 
 class MyRoutes {
@@ -30,6 +31,7 @@ class MyRoutes {
 
         // public routes
         app.use('/api/articles', articleRoutes(this.db));
+        app.use('/api/affiliate/links', affiliateLinksRoute(this.db));
     }
 
     async authenticate(username, password) {

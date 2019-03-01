@@ -43,6 +43,12 @@ class MyDb {
                     article_id INT REFERENCES articles(article_id) ON UPDATE CASCADE ON DELETE CASCADE NOT NULL,
                     tag_name varchar(20) NOT NULL
                 );
+                CREATE TABLE IF NOT EXISTS affiliate_links(
+                    affiliate_link_id SERIAL PRIMARY KEY,
+                    affiliate_link_html TEXT NOT NULL,
+                    added_at timestamp NOT NULL DEFAULT NOW(),
+                    is_active BOOLEAN NOT NULL DEFAULT FALSE
+                );
             `,
             []
         );
