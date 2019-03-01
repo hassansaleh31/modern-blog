@@ -42,8 +42,10 @@ class Page extends React.Component {
                     <meta property="article:published_time" content={this.props.article.created_at}></meta>
                     <meta property="article:author" content="Hassan Saleh"></meta>
                     <meta property="og:image" content={this.props.article.image}></meta>
+                    <meta name="twitter:card" content="summary_large_image"></meta>
                     <link href="/static/monokai-sublime.css" rel="stylesheet" />
                     <link href="/static/post-page.css" rel="stylesheet" />
+                    <link rel="canonical" href={`https://hassansaleh.info/p/${this.props.article.article_id}`} />
                     <script type="application/ld+json"
                         dangerouslySetInnerHTML={{
                             __html: JSON.stringify({

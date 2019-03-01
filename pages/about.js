@@ -7,7 +7,8 @@ const About = ({ popular }) => (
     <Layout>
         <Head>
             <title>Hassan Saleh</title>
-            <meta name="description" content="Full stack web developer from Tyre, Lebanon"></meta>
+            <meta name="description" content="Full stack web developer from Tyre, Lebanon. I create websites, web apps and mobile apps. I also manage servers and databases."></meta>
+            <link rel="canonical" href="https://hassansaleh.info/about" />
         </Head>
         <div style={{ padding: '1em' }}>
             <h1>Hey, my name is Hassan Saleh.</h1>

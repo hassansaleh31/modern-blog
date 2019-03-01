@@ -9,7 +9,8 @@ const Index = (props) => (
     <Layout>
         <Head>
             <title>Hassan Saleh's Blog</title>
-            <meta name="description" content="A Full stack web development blog made by Hassan Saleh"></meta>
+            <meta name="description" content="A Full stack web development blog made by me Hassan Saleh. I talk about Websites, Web Apps, Mobile Apps, Servers, DevOps and more."></meta>
+            <link rel="canonical" href="https://hassansaleh.info" />
         </Head>
         {
             props.latest.length > 0

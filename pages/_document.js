@@ -11,6 +11,7 @@ class MyDocument extends Document {
             <html lang="en">
                 <Head>
                     <link href="/static/index.css" rel="stylesheet" />
+                    <link rel="alternate" href="https://hassansaleh.info" hreflang="en-us" />
                     <meta name="google-site-verification" content="LK0sQdlPmUPoJrkECxDaviGVzqAtRJsuojAkQ0xY5vQ" />
                     <meta name="p:domain_verify" content="50a29c02349fc4800cf047560aabd2e2" />
                     <meta name="viewport" content="width=device-width, initial-scale=1"></meta>

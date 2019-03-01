@@ -1,8 +1,15 @@
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Head from 'next/head'
 
 export default () => (
     <div>
+        <Head>
+            <title>Hassan Saleh's Blog - Privacy Policy</title>
+            <meta name="description" content="Privacy Policy for my site hassansaleh.info. By using this site you will be deemed to have acknowledged and agreed to this Policy. Thus, please read it
+                carefully."></meta>
+            <link rel="canonical" href="https://hassansaleh.info/privacy" />
+        </Head>
         <Header />
         <main style={{ padding: '1em' }}>
             <h1>Privacy Policy</h1>
