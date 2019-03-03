@@ -14,7 +14,7 @@ const Header = () => (
         <nav style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
             <Link href="/">
                 <a>
-                    <img src="/static/logo.png" width="32" height="32" />
+                    <img src="./static/Logo.png" width="32" height="32" />
                 </a>
             </Link>
             <Link href="/">
