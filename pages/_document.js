@@ -10,13 +10,13 @@ class MyDocument extends Document {
         return (
             <html lang="en">
                 <Head>
-                    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="./static/favicon-114.png" />
-                    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./static/favicon-114.png" />
-                    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./static/favicon-144.png" />
-                    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./static/favicon-144.png" />
-                    <link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href="./static/favicon.ico" />
-                    <link rel="icon" sizes="128x128" href="./static/favicon.icns" />
-                    <link rel="icon" href="./static/favicon.png" type="image/x-icon" />
+                    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/static/favicon-114.png" />
+                    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/favicon-114.png" />
+                    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/favicon-144.png" />
+                    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/favicon-144.png" />
+                    <link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href="/static/favicon.ico" />
+                    <link rel="icon" sizes="128x128" href="/static/favicon.icns" />
+                    <link rel="icon" href="/static/favicon.png" type="image/x-icon" />
 
                     <link href="/static/index.css" rel="stylesheet" />
                     <link rel="alternate" href="https://hassansaleh.info" hrefLang="en-us" />
