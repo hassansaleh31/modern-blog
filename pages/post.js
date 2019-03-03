@@ -5,7 +5,6 @@ import PostList from '../components/PostList'
 import SideContent from '../components/SideContent'
 import MarkdownText from '../components/MarkdownText'
 import ShareButtons from '../components/ShareButtons'
-import ArticleAd from '../components/ArticleAd'
 import Head from 'next/head';
 
 class Page extends React.Component {
@@ -74,7 +73,6 @@ class Page extends React.Component {
                         <p>{this.props.article.description}</p>
                         <img src={this.props.article.image} alt={this.props.article.title} style={{ maxWidth: '100%', maxHeight: '500px', boxShadow: '0 0 1em #a7a7a78a' }} />
                         <ShareButtons article={this.props.article} url={`https://hassansaleh.info/p/${this.props.article.article_id}`}></ShareButtons>
-                        <ArticleAd />
                         <MarkdownText text={this.props.article.body} />
                         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                             {

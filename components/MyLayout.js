@@ -11,7 +11,8 @@ class MyLayout extends React.Component {
     componentDidMount() {
         if (document.querySelectorAll('.adsbygoogle').length > 0 && typeof adsbygoogle != 'undefined') {
             (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: adsenseConfig.publisherId
+                google_ad_client: adsenseConfig.publisherId,
+                enable_page_level_ads: true
             })
         }
 

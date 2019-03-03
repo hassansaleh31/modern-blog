@@ -3,7 +3,9 @@ const PostList = ({ posts }) => (
     <ul className="post-list">
         {
             posts.map((post) => (
-                <PostCard key={post.article_id} post={post} />
+                <li key={post.article_id}>
+                    <PostCard post={post} />
+                </li>
             ))
         }
     </ul>

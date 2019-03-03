@@ -97,3 +97,18 @@ a:hover {
         top: 1em;
     }
 }
+
+.article-tag {
+    display: inline-block;
+    padding: .5em 1em;
+    margin-right: .5em;
+    margin-bottom: .5em;
+    background-color: #001335;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em #00133524;
+    color: #fcfcfc;
+}
+
+.article-tag a {
+    color: #fcfcfc;
+}
