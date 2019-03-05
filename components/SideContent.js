@@ -18,9 +18,6 @@ export default ({ popular }) => (
             ))}
         </div>
         <div className="sticky-top">
-            <a href="http://www.anrdoezrs.net/click-9006091-10564936" target="_top">
-                <img src="http://www.ftjcfx.com/image-9006091-10564936" width="300" height="250" alt="1&1 IONOS – Tailored Service with a Personal Consultant" border="0" />
-            </a>
             <AffiliateLinksList />
         </div>
     </div>

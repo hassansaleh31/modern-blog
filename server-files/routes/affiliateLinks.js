@@ -17,6 +17,15 @@ class AffiliateLinksRoute {
                     console.error(e)
                 })
         })
+
+        this.router.get('/side', (req, res) => {
+            this.affiliateLinksModel.getSideLinks()
+                .then(links => res.json({ success: true, body: links }))
+                .catch(e => {
+                    res.sendStatus(500)
+                    console.error(e)
+                })
+        })
     }
 
 }

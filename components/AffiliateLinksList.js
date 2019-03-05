@@ -4,35 +4,47 @@ class AffiliateLinksList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            links: []
+            links: [],
+            image: null
         }
     }
 
     componentDidMount() {
-        AffiliateLinksModel.getLinks()
+        AffiliateLinksModel.getSideLinks()
             .then(body => {
                 this.setState(state => ({
-                    links: body.links
+                    links: body.links,
+                    image: body.image
                 }))
             })
     }
 
     render() {
         const links = this.state.links
+        const image = this.state.image
         return (
-            <div className="container" style={{ margin: '1em 0' }}>
+            <div>
                 {
-                    links
+                    image
                         ? (
-                            <div>
-                                <h2 style={{ borderBottom: '1px solid #cecece', marginTop: '0' }}>Web Development Deals</h2>
-                                {links.map(link => (
-                                    <h3 key={link.affiliate_link_id} dangerouslySetInnerHTML={{ __html: link.affiliate_link_html }} />
-                                ))}
-                            </div>
+                            <div className="container" dangerouslySetInnerHTML={{ __html: image.affiliate_link_html }}></div>
                         )
                         : null
                 }
+                <div className="container" style={{ margin: '1em 0' }}>
+                    {
+                        links
+                            ? (
+                                <div>
+                                    <h2 style={{ borderBottom: '1px solid #cecece', marginTop: '0' }}>Web Development Deals</h2>
+                                    {links.map(link => (
+                                        <h3 key={link.affiliate_link_id} dangerouslySetInnerHTML={{ __html: link.affiliate_link_html }} />
+                                    ))}
+                                </div>
+                            )
+                            : null
+                    }
+                </div>
             </div>
         )
     }
