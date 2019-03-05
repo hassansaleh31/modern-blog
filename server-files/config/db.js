@@ -18,6 +18,11 @@ class MyDb {
                 EXCEPTION
                     WHEN duplicate_object THEN null;
                 END $$;
+                DO $$ BEGIN
+                    CREATE TYPE link_type AS ENUM ('text', 'square', 'horizantal', 'vertical');
+                EXCEPTION
+                    WHEN duplicate_object THEN null;
+                END $$;
                 CREATE TABLE IF NOT EXISTS admins(
                     username VARCHAR(30) PRIMARY KEY NOT NULL,
                     password VARCHAR(255) NOT NULL,
@@ -46,6 +51,7 @@ class MyDb {
                 CREATE TABLE IF NOT EXISTS affiliate_links(
                     affiliate_link_id SERIAL PRIMARY KEY,
                     affiliate_link_html TEXT NOT NULL,
+                    affiliate_link_type link_type NOT NULL DEFAULT 'text',
                     added_at timestamp NOT NULL DEFAULT NOW(),
                     is_active BOOLEAN NOT NULL DEFAULT FALSE
                 );
