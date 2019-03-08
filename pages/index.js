@@ -27,7 +27,7 @@ const Index = (props) => (
                 )
                 : <h2>There are no articles to show</h2>
         }
-        <div style={{ padding: '1em' }}>
+        <div>
             <SideContent popular={props.popular} />
         </div>
     </Layout>
