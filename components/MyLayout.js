@@ -43,9 +43,11 @@ class MyLayout extends React.Component {
         return (
             <div>
                 <Header />
-                <div className="main-grid">
-                    {this.props.children}
-                </div>
+                <main>
+                    <div className="main-grid">
+                        {this.props.children}
+                    </div>
+                </main>
                 <Footer />
 
                 <style jsx>
