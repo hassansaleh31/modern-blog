@@ -31,7 +31,7 @@ class MyRoutes {
 
         // public routes
         app.use('/api/articles', articleRoutes(this.db));
-        app.use('/api/affiliate/links', affiliateLinksRoute(this.db));
+        app.use('/api/affiliate', affiliateLinksRoute(this.db));
     }
 
     async authenticate(username, password) {

@@ -60,6 +60,7 @@ class MyDb {
         );
         const tablesExist = true
         const adminExists = await this.createGodUser()
+        await this.upgradeTables()
         return { tablesExist, adminExists }
     }
 
@@ -82,6 +83,23 @@ class MyDb {
             [username, name, hashedPassword, 'god']
         );
         return insertRes.rowCount > 0;
+    }
+
+    async upgradeTables() {
+        let query = await this.query(
+            `select column_name
+            from information_schema.columns 
+            where table_name = 'affiliate_links';`,
+            []
+        )
+        if (query.rowCount > 0 && query.rows.filter(x => x['column_name'] === 'affiliate_link_type').length === 0) {
+            console.log('Adding column affiliate_link_type to table affiliate_links')
+            await this.query(
+                `ALTER TABLE affiliate_links ADD affiliate_link_type link_type NOT NULL DEFAULT 'text'`,
+                []
+            )
+            console.log('Added column affiliate_link_type to table affiliate_links')
+        }
     }
 }
 

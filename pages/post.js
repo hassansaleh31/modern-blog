@@ -59,7 +59,7 @@ class Page extends React.Component {
                                 "datePublished": this.props.article.created_at,
                                 "dateModified": this.props.article.created_at,
                                 "image": this.props.article.image,
-                                "articleBody": this.props.article.body,
+                                // "articleBody": this.props.article.body,
                                 "url": `https://hassansaleh.info/p/${this.props.article.article_id}`,
                                 "description": this.props.article.description,
                                 "keywords": this.props.article.tags.join(' '),
