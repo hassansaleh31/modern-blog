@@ -74,8 +74,10 @@ class Page extends React.Component {
                         <p>{this.props.article.description}</p>
                         < ArticleAd />
                         <img src={this.props.article.image} alt={this.props.article.title} style={{ maxWidth: '100%', maxHeight: '500px', boxShadow: '0 0 1em #a7a7a78a' }} />
-                        <ShareButtons article={this.props.article} url={`https://hassansaleh.info/p/${this.props.article.article_id}`}></ShareButtons>
+                        <ShareButtons article={this.props.article} url={`https://hassansaleh.info/p/${this.props.article.article_id}`} />
                         <MarkdownText text={this.props.article.body} />
+                        <p>If you feel that you have learned anything from this article, don't forget to share it and help other people learn.</p>
+                        <ShareButtons article={this.props.article} url={`https://hassansaleh.info/p/${this.props.article.article_id}`} />
                         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                             {
                                 this.props.article.previous

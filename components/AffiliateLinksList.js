@@ -27,7 +27,7 @@ class AffiliateLinksList extends React.Component {
                 {
                     image
                         ? (
-                            <div className="container" dangerouslySetInnerHTML={{ __html: image.affiliate_link_html }}></div>
+                            <div dangerouslySetInnerHTML={{ __html: image.affiliate_link_html }}></div>
                         )
                         : null
                 }
