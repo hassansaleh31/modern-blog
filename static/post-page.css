@@ -15,7 +15,7 @@ p code {
     max-width: 100%;
     display: inline;
     line-height: 2.5em;
-    white-space: nowrap;
+    white-space: pre-wrap;
 }
 
 li code {
@@ -23,7 +23,7 @@ li code {
     max-width: 100%;
     display: inline;
     line-height: 2.5em;
-    white-space: nowrap;
+    white-space: pre-wrap;
 }
 
 blockquote {
