@@ -112,3 +112,7 @@ a:hover {
 .article-tag a {
     color: #fcfcfc;
 }
+
+.affiliate_banner img {
+    max-width: 100%;
+}

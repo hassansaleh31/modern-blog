@@ -9,12 +9,6 @@ class MyLayout extends React.Component {
     }
 
     componentDidMount() {
-        if (document.querySelectorAll('.adsbygoogle').length > 0 && typeof adsbygoogle != 'undefined') {
-            (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: adsenseConfig.publisherId
-            })
-        }
-
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());

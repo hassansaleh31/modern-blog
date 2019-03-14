@@ -1,20 +1,19 @@
 import AffiliateLinksModel from '../models/affiliateLinks'
+import AffiliateBanner from './AffiliateBanner'
 
 class AffiliateLinksList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            links: [],
-            image: null
+            links: []
         }
     }
 
     componentDidMount() {
-        AffiliateLinksModel.getSideLinks()
+        AffiliateLinksModel.getLinks()
             .then(body => {
                 this.setState(state => ({
                     links: body.links,
-                    image: body.image
                 }))
             })
     }
@@ -24,13 +23,7 @@ class AffiliateLinksList extends React.Component {
         const image = this.state.image
         return (
             <div>
-                {
-                    image
-                        ? (
-                            <div dangerouslySetInnerHTML={{ __html: image.affiliate_link_html }}></div>
-                        )
-                        : null
-                }
+                <AffiliateBanner />
                 <div className="container" style={{ margin: '1em 0' }}>
                     {
                         links

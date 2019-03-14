@@ -5,8 +5,9 @@ import PostList from '../components/PostList'
 import SideContent from '../components/SideContent'
 import MarkdownText from '../components/MarkdownText'
 import ShareButtons from '../components/ShareButtons'
-import ArticleAd from '../components/ArticleAd'
 import Head from 'next/head';
+
+import adsenseConfig from '../config'
 
 class Page extends React.Component {
     constructor(props) {
@@ -22,6 +23,12 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
+        if (typeof adsbygoogle != 'undefined') {
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: adsenseConfig.publisherId,
+                enable_page_level_ads: true
+            })
+        }
         setTimeout(() => {
             Posts.incrementViews(this.props.article.article_id)
                 .then(res => { console.log('Article views incremented') })
@@ -66,13 +73,14 @@ class Page extends React.Component {
                                 "mainEntityOfPage": "https://hassansaleh.info"
                             })
                         }} />
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 </Head>
                 <div className="main-content">
                     <div className="container">
                         <h1>{this.props.article.title}</h1>
                         <p>Posted on {new Date(this.props.article.created_at).toDateString()}</p>
                         <p>{this.props.article.description}</p>
-                        < ArticleAd />
+                        {/* < ArticleAd /> */}
                         <img src={this.props.article.image} alt={this.props.article.title} style={{ maxWidth: '100%', maxHeight: '500px', boxShadow: '0 0 1em #a7a7a78a' }} />
                         <ShareButtons article={this.props.article} url={`https://hassansaleh.info/p/${this.props.article.article_id}`} />
                         <MarkdownText text={this.props.article.body} />

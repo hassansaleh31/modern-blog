@@ -19,7 +19,27 @@ class AffiliateLinksRoute {
         })
 
         this.router.get('/side', (req, res) => {
-            this.affiliateLinksModel.getSideLinks()
+            this.affiliateLinksModel.getSideLinks(req.query)
+                .then(links => res.json({ success: true, body: links }))
+                .catch(e => {
+                    res.sendStatus(500)
+                    console.error(e)
+                })
+        })
+
+        this.router.get('/horizontal', (req, res) => {
+            const ip_address = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+            this.affiliateLinksModel.getAffiliateBanner(ip_address, 'horizantal')
+                .then(links => res.json({ success: true, body: links }))
+                .catch(e => {
+                    res.sendStatus(500)
+                    console.error(e)
+                })
+        })
+
+        this.router.get('/square', (req, res) => {
+            const ip_address = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+            this.affiliateLinksModel.getAffiliateBanner(ip_address)
                 .then(links => res.json({ success: true, body: links }))
                 .catch(e => {
                     res.sendStatus(500)

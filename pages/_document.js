@@ -17,13 +17,11 @@ class MyDocument extends Document {
                     <link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href="/static/favicon.ico" />
                     <link rel="icon" sizes="128x128" href="/static/favicon.icns" />
                     <link rel="icon" href="/static/favicon.png" type="image/x-icon" />
-
                     <link href="/static/index.css" rel="stylesheet" />
                     <link rel="alternate" href="https://hassansaleh.info" hrefLang="en-us" />
                     <meta name="google-site-verification" content="LK0sQdlPmUPoJrkECxDaviGVzqAtRJsuojAkQ0xY5vQ" />
                     <meta name="p:domain_verify" content="50a29c02349fc4800cf047560aabd2e2" />
                     <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92632628-3"></script>
                 </Head>
                 <body>

@@ -24,25 +24,42 @@ class AffiliateLinks {
         };
     }
 
-    async getSquareImages(params) {
-        const count = Number(params.count || 50);
-        const page = Number(params.page || 0);
+    async getAffiliateBanner(ip_address, type = 'square') {
         const start = new Date().getTime();
         const res = await this.db.query(
-            `SELECT * FROM affiliate_links WHERE is_active = $1 AND affiliate_link_type = $2 LIMIT $3 OFFSET $4;`,
-            [true, 'square', count, count * page]
+            `SELECT affiliate_links.*, COUNT(affiliate_link_views.view_id) FROM
+            affiliate_links LEFT JOIN affiliate_link_views USING (affiliate_link_id)
+            WHERE is_active = $1 AND affiliate_link_type = $2
+            GROUP BY affiliate_links.affiliate_link_id
+            ORDER BY COUNT(affiliate_link_views.view_id) ASC
+            LIMIT 1;`,
+            [true, type]
         );
-        const total = await this.getActiveSqaureImagesCount();
+        if (res.rowCount > 0) {
+            await this.incrementViews(res.rows[0]['affiliate_link_id'], ip_address)
+        }
         const end = new Date().getTime();
         return {
-            links: res.rows,
-            total,
-            count: res.rowCount,
-            limit: count,
-            page,
+            link: res.rowCount > 0 ? res.rows[0] : null,
             excutionTime: `${end - start} ms`
         };
     }
+
+    // async getHorizontalImages(ip_address) {
+    //     const start = new Date().getTime();
+    //     const res = await this.db.query(
+    //         `SELECT * FROM affiliate_links WHERE is_active = $1 AND affiliate_link_type = $2;`,
+    //         [true, 'horizantal']
+    //     );
+    //     if (res.rowCount > 0) {
+    //         await this.incrementViews(res.rows[0]['affiliate_link_id'], ip_address)
+    //     }
+    //     const end = new Date().getTime();
+    //     return {
+    //         link: res.rowCount > 0 ? res.rows[0] : null,
+    //         excutionTime: `${end - start} ms`
+    //     };
+    // }
 
     async getSideLinks() {
         const start = new Date().getTime();
@@ -70,6 +87,27 @@ class AffiliateLinks {
             [true, 'square']
         )
         return Number(res.rows[0].total || 0)
+    }
+
+    async getActiveHorizonalImagesCount() {
+        const res = await this.db.query(
+            'SELECT COUNT(affiliate_link_id) AS total FROM affiliate_links WHERE is_active = $1 AND affiliate_link_type = $2;',
+            [true, 'horizantal']
+        )
+        return Number(res.rows[0].total || 0)
+    }
+
+    async incrementViews(affiliate_link_id, ip_address) {
+        const start = new Date().getTime();
+        const res = await this.db.query(
+            'INSERT INTO affiliate_link_views (affiliate_link_id, view_ip) VALUES ($1, $2) RETURNING *;',
+            [affiliate_link_id, ip_address]
+        )
+        const end = new Date().getTime();
+        return {
+            success: (res.rowCount > 0 && res.rows[0].view_id) ? true : false,
+            excutionTime: `${end - start} ms`
+        }
     }
 
 }

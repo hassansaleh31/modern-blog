@@ -42,7 +42,7 @@ class MyDb {
                     view_id SERIAL PRIMARY KEY,
                     article_id INT REFERENCES articles(article_id) ON UPDATE CASCADE ON DELETE CASCADE NOT NULL,
                     view_date timestamp NOT NULL DEFAULT NOW(),
-                    view_ip VARCHAR(20)
+                    view_ip VARCHAR(39)
                 );
                 CREATE TABLE IF NOT EXISTS article_tags(
                     article_id INT REFERENCES articles(article_id) ON UPDATE CASCADE ON DELETE CASCADE NOT NULL,
@@ -54,6 +54,12 @@ class MyDb {
                     affiliate_link_type link_type NOT NULL DEFAULT 'text',
                     added_at timestamp NOT NULL DEFAULT NOW(),
                     is_active BOOLEAN NOT NULL DEFAULT FALSE
+                );
+                CREATE TABLE IF NOT EXISTS affiliate_link_views(
+                    view_id SERIAL PRIMARY KEY,
+                    affiliate_link_id INT REFERENCES affiliate_links(affiliate_link_id) ON UPDATE CASCADE ON DELETE CASCADE NOT NULL,
+                    view_date timestamp NOT NULL DEFAULT NOW(),
+                    view_ip VARCHAR(39)
                 );
             `,
             []

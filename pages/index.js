@@ -2,6 +2,7 @@ import Layout from '../components/MyLayout.js'
 import HomeLatestPost from '../components/HomeLatestPost'
 import PostList from '../components/PostList'
 import SideContent from '../components/SideContent'
+import AffiliateBanner from '../components/AffiliateBanner'
 import Posts from '../models/posts'
 import Head from 'next/head'
 
@@ -17,6 +18,7 @@ const Index = (props) => (
                 ? (
                     <div className="main-content padded-on-mobile">
                         <HomeLatestPost post={props.latest[0]} />
+                        <AffiliateBanner />
                         <h2 style={{ borderBottom: '1px solid #cecece' }}>Latest Articles</h2>
                         {
                             props.latest.length > 1
