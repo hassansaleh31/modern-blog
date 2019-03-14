@@ -27,19 +27,21 @@ class AffiliateLinks {
     async getAffiliateBanner(ip_address, type = 'square') {
         const start = new Date().getTime();
         const res = await this.db.query(
-            `SELECT affiliate_links.*, t1.views FROM
+            `SELECT affiliate_links.*, COUNT(t1.*) AS views FROM
             affiliate_links LEFT JOIN
             (
-                SELECT affiliate_link_id, COUNT(view_id) AS views
+                SELECT affiliate_link_id, view_id
                 FROM affiliate_link_views
-                GROUP BY affiliate_link_id
+                ORDER BY view_id DESC
                 LIMIT 1000
             ) t1 USING (affiliate_link_id)
             WHERE is_active = $1 AND affiliate_link_type = $2
-            ORDER BY t1.views ASC
-            LIMIT 1;`,
+            GROUP BY affiliate_link_id
+            ORDER BY COUNT(t1.*) ASC
+            LIMIT 10;`,
             [true, type]
         );
+        console.log(res.rows.map(banner => ({ id: banner['affiliate_link_id'], views: banner['views'] })))
         if (res.rowCount > 0) {
             await this.incrementViews(res.rows[0]['affiliate_link_id'], ip_address)
         }
