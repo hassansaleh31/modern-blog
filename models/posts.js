@@ -16,8 +16,8 @@ class PostsMethods {
         return res;
     }
 
-    async getPopular() {
-        const res = await api.get('/articles/popular/');
+    async getPopular(count = 4) {
+        const res = await api.get(`/articles/popular?count=${count}`);
         return res;
     }
 
