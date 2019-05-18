@@ -1,7 +1,13 @@
 const { Pool } = require('pg');
 const bcrypt = require('bcrypt');
+const fs = require('fs');
+const path = require('path');
 
-const pool = new Pool()
+const pool = new Pool({
+    ssl: {
+        ca: fs.readFileSync(path.join(process.cwd(), 'ca-certificate.crt')).toString()
+    }
+})
 
 class MyDb {
     constructor() { }

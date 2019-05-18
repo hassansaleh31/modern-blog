@@ -13,47 +13,45 @@ const cors = require('cors');
 const compression = require('compression');
 const myDb = require('./server-files/config/db')
 
-// next js initialization
-app.prepare()
-    .then(() => {
-        const server = express();
+const init = async () => {
+    await app.prepare()
 
-        // configure jwt authentication using passport
-        server.use(passport.initialize());
-        server.use(passport.session());
-        server.use(bodyParser.json());
-        server.use(cors());
-        server.use(compression());
-        require('./server-files/config/authentication')(passport, myDb);
+    const server = express();
 
-        // routes configuration
-        require('./server-files/routes')(server, myDb)
+    // configure jwt authentication using passport
+    server.use(passport.initialize());
+    server.use(passport.session());
+    server.use(bodyParser.json());
+    server.use(cors());
+    server.use(compression());
+    require('./server-files/config/authentication')(passport, myDb);
 
-        server.get('/p/:id', (req, res) => {
-            const actualPage = '/post'
-            const queryParams = { id: req.params.id }
-            app.render(req, res, actualPage, queryParams)
-        })
+    // routes configuration
+    require('./server-files/routes')(server, myDb)
 
-        server.get('*', (req, res) => {
-            return handle(req, res)
-        })
-
-        // database initialization
-        myDb.createTables()
-            .then((dbStatus) => {
-                console.log(dbStatus)
-                // server initialization
-                server.listen(3000, (err) => {
-                    if (err) throw err
-                    console.log('> Ready on http://localhost:3000')
-                })
-            })
-            .catch(e => {
-                console.error(e.stack)
-                process.exit(1)
-            })
+    server.get('/p/:id', (req, res) => {
+        const actualPage = '/post'
+        const queryParams = { id: req.params.id }
+        app.render(req, res, actualPage, queryParams)
     })
+
+    server.get('*', (req, res) => {
+        return handle(req, res)
+    })
+
+    server.listen(3000, (err) => {
+        if (err) {
+            console.error(e)
+            process.exit(1)
+        }
+        console.log('> Ready on http://localhost:3000')
+    })
+
+    await myDb.createGodUser()
+}
+
+init()
+    .then(() => { })
     .catch((ex) => {
         console.error(ex.stack)
         process.exit(1)
