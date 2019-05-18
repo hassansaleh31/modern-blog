@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "Hassan Saleh",
