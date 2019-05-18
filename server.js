@@ -51,6 +51,6 @@ const init = async () => {
 init()
     .then(() => { })
     .catch((ex) => {
-        console.error(ex.stack)
+        console.error(ex)
         process.exit(1)
     })
