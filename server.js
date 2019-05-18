@@ -39,15 +39,13 @@ const init = async () => {
         return handle(req, res)
     })
 
-    server.listen(3000, (err) => {
+    server.listen(process.env.PORT || 3000, (err) => {
         if (err) {
             console.error(e)
             process.exit(1)
         }
         console.log('> Ready on http://localhost:3000')
     })
-
-    await myDb.createGodUser()
 }
 
 init()
