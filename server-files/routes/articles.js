@@ -43,7 +43,7 @@ class ArticlesRoute {
                 .then(body => res.json({ success: body.success, body }))
                 .catch(e => {
                     console.error(e)
-                    res.statusCode(500)
+                    res.sendStatus(500)
                 })
         })
 
