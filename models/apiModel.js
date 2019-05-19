@@ -7,7 +7,7 @@ class ApiModel {
             if (typeof window !== 'undefined') {
                 this.baseUrl = `/api`
             } else {
-                this.baseUrl = `https://hassansaleh.info/api`
+                this.baseUrl = `http://hassansaleh.info/api`
             }
         } else {
             this.baseUrl = 'http://localhost:3000/api'

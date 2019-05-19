@@ -18,6 +18,7 @@ class ArticlesModule {
         const newArticle = res.rows[0];
         newArticle.tags = await this.tagsModel.addArticleTags(newArticle.article_id, article.tags);
         const end = new Date().getTime();
+        console.log(`Query excution time: ${end - start} ms`)
         return {
             article: newArticle,
             excutionTime: `${end - start} ms`
@@ -31,6 +32,7 @@ class ArticlesModule {
             [article_id]
         );
         const end = new Date().getTime();
+        console.log(`Query excution time: ${end - start} ms`)
         return {
             excutionTime: `${end - start} ms`
         }
@@ -58,6 +60,7 @@ class ArticlesModule {
         );
         const total = await this.getArticlesCount();
         const end = new Date().getTime();
+        console.log(`Query excution time: ${end - start} ms`)
         return {
             articles: res.rows,
             total,
@@ -88,6 +91,7 @@ class ArticlesModule {
             [count]
         );
         const end = new Date().getTime();
+        console.log(`Query excution time: ${end - start} ms`)
         return {
             articles: res.rows,
             count: res.rowCount,
@@ -125,6 +129,7 @@ class ArticlesModule {
             [`%${tag}%`, count, count * page]
         )
         const end = new Date().getTime();
+        console.log(`Query excution time: ${end - start} ms`)
         return {
             articles: res.rows,
             count: res.rowCount,
@@ -162,6 +167,7 @@ class ArticlesModule {
             [article_id, count]
         )
         const end = new Date().getTime();
+        console.log(`Query excution time: ${end - start} ms`)
         return {
             articles: res.rows,
             count: res.rowCount,
@@ -191,6 +197,7 @@ class ArticlesModule {
         const article = { ...res.rows[0] }
         article.tags = await this.tagsModel.getArticleTags(id);
         const end = new Date().getTime();
+        console.log(`Query excution time: ${end - start} ms`)
         return {
             article,
             excutionTime: `${end - start} ms`
@@ -204,6 +211,7 @@ class ArticlesModule {
             [article_id, ip_address]
         )
         const end = new Date().getTime();
+        console.log(`Query excution time: ${end - start} ms`)
         return {
             success: (res.rowCount > 0 && res.rows[0].view_id) ? true : false,
             excutionTime: `${end - start} ms`

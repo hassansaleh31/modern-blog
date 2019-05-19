@@ -1,3 +1,4 @@
+const start = Date.now();
 const express = require('express')
 const next = require('next')
 
@@ -45,6 +46,8 @@ const init = async () => {
             process.exit(1)
         }
         console.log('> Ready on http://localhost:3000')
+        const end = Date.now();
+        console.log(`Startup time: ${end - start} ms`);
     })
 }
 

@@ -14,6 +14,7 @@ class AffiliateLinks {
         );
         const total = await this.getActiveLinksCount();
         const end = new Date().getTime();
+        console.log(`Query excution time: ${end - start} ms`)
         return {
             links: res.rows,
             total,
@@ -45,6 +46,7 @@ class AffiliateLinks {
             await this.incrementViews(res.rows[0]['affiliate_link_id'], ip_address)
         }
         const end = new Date().getTime();
+        console.log(`Query excution time: ${end - start} ms`)
         return {
             link: res.rowCount > 0 ? res.rows[0] : null,
             excutionTime: `${end - start} ms`
@@ -56,6 +58,7 @@ class AffiliateLinks {
         const links = await this.getLinks({ count: 5 })
         const image = await this.getSquareImages({ count: 5 })
         const end = new Date().getTime();
+        console.log(`Query excution time: ${end - start} ms`)
         return {
             links: links.links,
             image: image.count > 0 ? image.links[0] : null,
@@ -94,6 +97,7 @@ class AffiliateLinks {
             [affiliate_link_id, ip_address]
         )
         const end = new Date().getTime();
+        console.log(`Query excution time: ${end - start} ms`)
         return {
             success: (res.rowCount > 0 && res.rows[0].view_id) ? true : false,
             excutionTime: `${end - start} ms`
