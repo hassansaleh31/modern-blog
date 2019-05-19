@@ -4,7 +4,7 @@ class ApiModel {
 
     constructor() {
         if (process.env.NODE_ENV === 'production') {
-            this.baseUrl = `https://my-blog-241003.appspot.com/`
+            this.baseUrl = `https://my-blog-241003.appspot.com/api/`
         } else {
             this.baseUrl = 'http://localhost:3000/api'
         }
