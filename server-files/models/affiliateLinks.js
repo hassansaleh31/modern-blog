@@ -41,7 +41,6 @@ class AffiliateLinks {
             LIMIT 10;`,
             [true, type]
         );
-        console.log(res.rows.map(banner => ({ id: banner['affiliate_link_id'], views: banner['views'] })))
         if (res.rowCount > 0) {
             await this.incrementViews(res.rows[0]['affiliate_link_id'], ip_address)
         }
