@@ -3,10 +3,12 @@ import axios from 'axios';
 class ApiModel {
 
     constructor() {
-        // this.baseUrl = process.env.NODE_ENV === 'production' ? 'https://hassansaleh.info/api' : 'http://localhost:3000/api'
-        // this.baseUrl = window !== undefined ? `${window.location.hostname}/api` : 'http://localhost:3000/api'
-        if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
-            this.baseUrl = `/api`
+        if (process.env.NODE_ENV === 'production') {
+            if (typeof window !== 'undefined') {
+                this.baseUrl = `/api`
+            } else {
+                this.baseUrl = `https://hassansaleh.info/api`
+            }
         } else {
             this.baseUrl = 'http://localhost:3000/api'
         }
@@ -14,7 +16,6 @@ class ApiModel {
 
     async get(path) {
         const res = await axios.get(`${this.baseUrl}${path}`);
-        // const data = await res.json();
         const data = res.data;
         if (!data.success) throw new Error(500);
         return data.body;
@@ -22,7 +23,6 @@ class ApiModel {
 
     async post(path, body) {
         const res = await axios.post(`${this.baseUrl}${path}`, body);
-        // const data = await res.json();
         const data = res.data;
         if (!data.success) throw new Error(500);
         return data.body;
