@@ -1,6 +1,7 @@
 const start = Date.now();
 const express = require('express')
 const next = require('next')
+const path = require('path')
 
 require('dotenv').config()
 
@@ -36,16 +37,26 @@ const init = async () => {
         app.render(req, res, actualPage, queryParams)
     })
 
+    server.get('/favicon.ico', (req, res) => {
+        res.sendFile(path.join(process.cwd(), 'static/favicon.ico'))
+    })
+
+    server.get('/ads.txt', (req, res) => {
+        res.sendFile(path.join(process.cwd(), 'static/ads.txt'))
+    })
+
     server.get('*', (req, res) => {
         return handle(req, res)
     })
 
-    server.listen(process.env.PORT || 3000, (err) => {
+    const port = process.env.PORT || 3000
+
+    server.listen(port, (err) => {
         if (err) {
             console.error(e)
             process.exit(1)
         }
-        console.log('> Ready on http://localhost:3000')
+        console.log(`> Ready on http://localhost:${port}`)
         const end = Date.now();
         console.log(`Startup time: ${end - start} ms`);
     })
