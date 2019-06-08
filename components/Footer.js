@@ -29,7 +29,7 @@ const Footer = () => (
         <p style={{ textAlign: 'center' }}>
             <strong>© 2019 Copyright Hassan Saleh. All rights reserved.</strong>
         </p>
-        <p style={{ textAlign: 'center' }}>This site is built with <a href="https://nextjs.org/">Next.js</a> and hosted on <a href="https://m.do.co/c/f3bd84f63ce0">Digital Ocean</a>. The source code is hosted on <a href="https://github.com/hassansaleh31/modern-blog">Github</a>.</p>
+        <p style={{ textAlign: 'center' }}>This site is built with <a href="https://nextjs.org/">Next.js</a> and hosted on <a href="https://cloud.google.com/">Google Cloud Platform</a>. The source code is on <a href="https://github.com/hassansaleh31/modern-blog">Github</a>.</p>
     </footer>
 )
 
