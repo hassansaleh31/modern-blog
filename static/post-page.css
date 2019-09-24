@@ -38,3 +38,7 @@ blockquote {
 img {
     max-width: 100%;
 }
+
+p a {
+    line-height: 1.5em;
+}

@@ -14,7 +14,7 @@ const Footer = () => (
         alignItems: 'center',
         justifyContent: 'center'
     }}>
-        <nav style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+        <nav style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginBottom: '1em' }}>
             <Link href="/">
                 <a style={linkStyle}>Home</a>
             </Link>
