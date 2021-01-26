@@ -18,7 +18,6 @@ const Index = (props) => (
                 ? (
                     <div className="main-content padded-on-mobile">
                         <HomeLatestPost post={props.latest[0]} />
-                        <AffiliateBanner />
                         <h2 style={{ borderBottom: '1px solid #cecece' }}>Latest Articles</h2>
                         {
                             props.latest.length > 1
