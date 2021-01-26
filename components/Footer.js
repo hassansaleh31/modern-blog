@@ -27,7 +27,7 @@ const Footer = () => (
         </nav>
         <a className="twitter-follow-button" href="https://twitter.com/hassansaleh31"> Follow me @hassansaleh31</a>
         <p style={{ textAlign: 'center' }}>
-            <strong>© 2019 Copyright Hassan Saleh. All rights reserved.</strong>
+            <strong>© 2021 Copyright Hassan Saleh. All rights reserved.</strong>
         </p>
         <p style={{ textAlign: 'center' }}>This site is built with <a href="https://nextjs.org/">Next.js</a> and hosted on <a href="https://cloud.google.com/">Google Cloud Platform</a>. The source code is on <a href="https://github.com/hassansaleh31/modern-blog">Github</a>.</p>
     </footer>
