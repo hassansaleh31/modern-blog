@@ -4,3 +4,4 @@
 .env
 config.js
 ca-certificate.crt
+.DS_Store
