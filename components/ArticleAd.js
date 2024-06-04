@@ -1,6 +1,6 @@
 import adsenseConfig from '../config'
 
-export default () => (
+const ArticleAd = () => (
     <div style={{ marginBottom: '1em' }}>
         <ins className="adsbygoogle"
             style={{ display: 'block', textAlign: 'center' }}
@@ -11,3 +11,5 @@ export default () => (
         </ins>
     </div>
 )
+
+export default ArticleAd

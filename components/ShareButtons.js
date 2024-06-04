@@ -11,7 +11,7 @@ import {
     RedditIcon
 } from 'react-share';
 
-export default ({ article, url }) => (
+const ShareButtons = ({ article, url }) => (
     <div style={{ padding: '1em', display: 'flex', flexDirection: 'row' }}>
         <div className="share-button-wrapper">
             <FacebookShareButton url={url} quote={article.title}>
@@ -47,3 +47,5 @@ export default ({ article, url }) => (
         `}</style>
     </div>
 )
+
+export default ShareButtons

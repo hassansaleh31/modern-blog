@@ -7,7 +7,7 @@ import MarkdownText from '../components/MarkdownText'
 import ShareButtons from '../components/ShareButtons'
 import Head from 'next/head';
 import React from 'react'
-import adsenseConfig from '../config'
+// import adsenseConfig from '../config'
 
 class Page extends React.Component {
     constructor(props) {
@@ -23,12 +23,12 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        if (typeof adsbygoogle != 'undefined') {
-            (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: adsenseConfig.publisherId,
-                enable_page_level_ads: true
-            })
-        }
+        // if (typeof adsbygoogle != 'undefined') {
+        //     (adsbygoogle = window.adsbygoogle || []).push({
+        //         google_ad_client: adsenseConfig.publisherId,
+        //         enable_page_level_ads: true
+        //     })
+        // }
         setTimeout(() => {
             Posts.incrementViews(this.props.article.article_id)
                 .then(res => { console.log('Article views incremented') })
@@ -84,7 +84,7 @@ class Page extends React.Component {
                         <img src={this.props.article.image} alt={this.props.article.title} style={{ maxWidth: '100%', maxHeight: '500px', boxShadow: '0 0 1em #a7a7a78a' }} />
                         <ShareButtons article={this.props.article} url={`https://hassansaleh.info/p/${this.props.article.article_id}`} />
                         <MarkdownText text={this.props.article.body} />
-                        <p>If you feel that you have learned anything from this article, don't forget to share it and help other people learn.</p>
+                        <p>If you feel that you have learned anything from this article, don&apos;t forget to share it and help other people learn.</p>
                         <ShareButtons article={this.props.article} url={`https://hassansaleh.info/p/${this.props.article.article_id}`} />
                         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                             {

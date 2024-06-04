@@ -1,4 +1,4 @@
-export default ({ tags }) => (
+const TagList = ({ tags }) => (
     tags
         ? tags.length > 0
             ? (
@@ -16,3 +16,5 @@ export default ({ tags }) => (
             : null
         : null
 )
+
+export default TagList

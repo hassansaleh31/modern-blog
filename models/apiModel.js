@@ -4,7 +4,7 @@ class ApiModel {
 
     constructor() {
         if (process.env.NODE_ENV === 'production') {
-            this.baseUrl = `https://my-blog-241003.appspot.com/api`
+            this.baseUrl = `https://hassansaleh.info/api`
         } else {
             this.baseUrl = `http://localhost:${process.env.PORT || 3000}/api`
         }
@@ -26,4 +26,6 @@ class ApiModel {
 
 }
 
-export default new ApiModel()
+const apiModel = new ApiModel()
+
+export default apiModel

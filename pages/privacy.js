@@ -2,10 +2,10 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Head from 'next/head'
 
-export default () => (
+const Privacy = () => (
     <div>
         <Head>
-            <title>Hassan Saleh's Blog - Privacy Policy</title>
+            <title>Hassan Saleh&apos;s Blog - Privacy Policy</title>
             <meta name="description" content="Privacy Policy for my site hassansaleh.info. By using this site you will be deemed to have acknowledged and agreed to this Policy. Thus, please read it
                 carefully."></meta>
             <link rel="canonical" href="https://hassansaleh.info/privacy" />
@@ -150,3 +150,5 @@ export default () => (
         <Footer />
     </div>
 )
+
+export default Privacy

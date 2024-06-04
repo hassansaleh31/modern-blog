@@ -1,6 +1,8 @@
 const marked = require('marked')
+import xss from 'xss';
 const highlightJs = require('highlight.js')
 import React from 'react'
+
 
 marked.setOptions({
     renderer: new marked.Renderer(),
@@ -23,9 +25,7 @@ class MarkdownText extends React.Component {
     }
 
     render() {
-        return (
-            <div dangerouslySetInnerHTML={{ __html: marked(this.props.text) }}></div>
-        )
+        return <div dangerouslySetInnerHTML={{ __html: xss(marked.parse(this.props.text)) }} />
     }
 }
 

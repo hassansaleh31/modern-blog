@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-export default (props) => (
-    <Link href={`/p/${props.post.article_id}`}>
+const HomeLatestPost = (props) => (
+    <Link href={`/p/${props.post.article_id}`} legacyBehavior>
         <a>
             <div id="latest-post" style={{ backgroundImage: `url(${props.post.image})` }}>
                 <div id="latest-post-content" style={{ padding: '1em' }}>
@@ -57,3 +57,5 @@ export default (props) => (
         </a>
     </Link>
 )
+
+export default HomeLatestPost
