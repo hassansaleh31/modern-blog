@@ -1,6 +1,6 @@
 import adsenseConfig from '../config'
 
-export default () => (
+const SideAds = () => (
     <ins className="adsbygoogle"
         style={{ display: 'block' }}
         data-ad-client={adsenseConfig.publisherId}
@@ -9,3 +9,5 @@ export default () => (
         data-full-width-responsive="true">
     </ins>
 )
+
+export default SideAds

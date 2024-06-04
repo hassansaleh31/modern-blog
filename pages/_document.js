@@ -1,14 +1,15 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
-    static async getInitialProps(ctx) {
-        const initialProps = await Document.getInitialProps(ctx)
-        return { ...initialProps }
-    }
+    // TODO: check if this is needed
+    // static async getInitialProps(ctx) {
+    //     const initialProps = await Document.getInitialProps(ctx)
+    //     return { ...initialProps }
+    // }
 
     render() {
         return (
-            <html lang="en">
+            <Html lang="en">
                 <Head>
                     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/static/favicon-114.png" />
                     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/favicon-114.png" />
@@ -21,14 +22,13 @@ class MyDocument extends Document {
                     <link rel="alternate" href="https://hassansaleh.info" hrefLang="en-us" />
                     <meta name="google-site-verification" content="LK0sQdlPmUPoJrkECxDaviGVzqAtRJsuojAkQ0xY5vQ" />
                     <meta name="p:domain_verify" content="50a29c02349fc4800cf047560aabd2e2" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
                     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92632628-3"></script>
                 </Head>
                 <body>
                     <Main />
                     <NextScript />
                 </body>
-            </html>
+            </Html>
         )
     }
 }

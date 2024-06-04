@@ -15,14 +15,14 @@ const Footer = () => (
         justifyContent: 'center'
     }}>
         <nav style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginBottom: '1em' }}>
-            <Link href="/">
-                <a style={linkStyle}>Home</a>
+            <Link href="/" style={linkStyle}>
+                Home
             </Link>
-            <Link href="/about">
-                <a style={linkStyle}>About</a>
+            <Link href="/about" style={linkStyle}>
+                About
             </Link>
-            <Link href="/privacy">
-                <a style={linkStyle}>Privacy Policy</a>
+            <Link href="/privacy" style={linkStyle}>
+                Privacy Policy
             </Link>
         </nav>
         <a className="twitter-follow-button" href="https://twitter.com/hassansaleh31"> Follow me @hassansaleh31</a>

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default ({ popular }) => (
+const SideContent = ({ popular }) => (
     <div style={{ height: '100%', position: 'relative' }}>
         <div className="sticky-top">
             <div className="container" style={{ margin: '1em 0' }}>
@@ -8,7 +8,7 @@ export default ({ popular }) => (
                 {popular.map(post => (
                     <h3 key={post.article_id}>
                         <Link href={`/p/${post.article_id}`}>
-                            <a>{post.title}</a>
+                            {post.title}
                         </Link>
                     </h3>
                 ))}
@@ -16,3 +16,5 @@ export default ({ popular }) => (
         </div>
     </div>
 )
+
+export default SideContent

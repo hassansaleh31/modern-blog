@@ -12,16 +12,16 @@ const Header = () => (
         boxShadow: '0 0 1em #00000033'
     }}>
         <nav style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-            <Link href="/">
-                <a style={{ marginRight: 5 }}>
-                    <img src="/static/Logo.png" width="32" height="32" />
-                </a>
+            <Link href="/" style={{ marginRight: 5 }}>
+
+                <img src="/static/Logo.png" width="32" height="32" />
+
             </Link>
-            <Link href="/">
-                <a style={linkStyle}>Home</a>
+            <Link href="/" style={linkStyle}>
+                Home
             </Link>
-            <Link href="/about">
-                <a style={linkStyle}>About Me</a>
+            <Link href="/about" style={linkStyle}>
+                About Me
             </Link>
         </nav>
     </header>

@@ -2,14 +2,13 @@ import Layout from '../components/MyLayout.js'
 import HomeLatestPost from '../components/HomeLatestPost'
 import PostList from '../components/PostList'
 import SideContent from '../components/SideContent'
-import AffiliateBanner from '../components/AffiliateBanner'
 import Posts from '../models/posts'
 import Head from 'next/head'
 
 const Index = (props) => (
     <Layout>
         <Head>
-            <title>Hassan Saleh's Blog</title>
+            <title>Hassan Saleh&apos;s Blog</title>
             <meta name="description" content="A Full stack web development blog made by me Hassan Saleh. I talk about Websites, Web Apps, Mobile Apps, Servers, DevOps and more."></meta>
             <link rel="canonical" href="https://hassansaleh.info" />
         </Head>

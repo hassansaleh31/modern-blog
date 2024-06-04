@@ -15,9 +15,9 @@ const About = ({ popular }) => (
         <main>
             <div style={{ padding: '1em', maxWidth: '1135px', margin: 'auto' }}>
                 <h1>Hey, my name is Hassan Saleh.</h1>
-                <h2>I'm a frontend engineering team leader from Tyre, Lebanon.</h2>
+                <h2>I&apos;m a frontend engineering team leader from Tyre, Lebanon.</h2>
                 <p>I design, build and maintain full-stack web applications.</p>
-                <p>Have a project you'd like to discuss?</p>
+                <p>Have a project you&apos;d like to discuss?</p>
                 <p>Lets chat at <a href="mailto:hassansaleh31@gmail.com">hassansaleh31@gmail.com</a></p>
 
                 <h2>Some of my work</h2>

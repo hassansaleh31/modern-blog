@@ -1,7 +1,6 @@
 import Header from './Header'
 import Footer from './Footer'
-
-import adsenseConfig from '../config'
+import React from 'react'
 
 class MyLayout extends React.Component {
     constructor(props) {
@@ -9,11 +8,11 @@ class MyLayout extends React.Component {
     }
 
     componentDidMount() {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+        // window.dataLayer = window.dataLayer || [];
+        // function gtag() { dataLayer.push(arguments); }
+        // gtag('js', new Date());
 
-        gtag('config', adsenseConfig.analyticsCode);
+        // gtag('config', adsenseConfig.analyticsCode);
 
         window.twttr = (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0],
