@@ -1,5 +1,6 @@
 import AffiliateLinksModel from '../models/affiliateLinks'
 import AffiliateBanner from './AffiliateBanner'
+import React from 'react'
 
 class AffiliateLinksList extends React.Component {
     constructor(props) {

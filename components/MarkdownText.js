@@ -1,5 +1,6 @@
 const marked = require('marked')
 const highlightJs = require('highlight.js')
+import React from 'react'
 
 marked.setOptions({
     renderer: new marked.Renderer(),

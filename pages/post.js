@@ -6,7 +6,7 @@ import SideContent from '../components/SideContent'
 import MarkdownText from '../components/MarkdownText'
 import ShareButtons from '../components/ShareButtons'
 import Head from 'next/head';
-
+import React from 'react'
 import adsenseConfig from '../config'
 
 class Page extends React.Component {

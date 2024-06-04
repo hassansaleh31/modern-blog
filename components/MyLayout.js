@@ -1,7 +1,6 @@
 import Header from './Header'
 import Footer from './Footer'
-
-// import adsenseConfig from '../config'
+import React from 'react'
 
 class MyLayout extends React.Component {
     constructor(props) {
