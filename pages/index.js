@@ -2,7 +2,6 @@ import Layout from '../components/MyLayout.js'
 import HomeLatestPost from '../components/HomeLatestPost'
 import PostList from '../components/PostList'
 import SideContent from '../components/SideContent'
-import AffiliateBanner from '../components/AffiliateBanner'
 import Posts from '../models/posts'
 import Head from 'next/head'
 

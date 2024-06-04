@@ -4,9 +4,9 @@ const fs = require('fs');
 const path = require('path');
 
 const pool = new Pool({
-    ssl: {
-        ca: fs.readFileSync(path.join(process.cwd(), 'ca-certificate.crt')).toString()
-    }
+    // ssl: {
+    //     ca: fs.readFileSync(path.join(process.cwd(), 'ca-certificate.crt')).toString()
+    // }
 })
 
 class MyDb {

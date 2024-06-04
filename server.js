@@ -22,7 +22,8 @@ const init = async () => {
 
     // configure jwt authentication using passport
     server.use(passport.initialize());
-    server.use(passport.session());
+    // TODO: do we need sessions?
+    // server.use(passport.session());
     server.use(bodyParser.json());
     server.use(cors());
     server.use(compression());

@@ -6,7 +6,7 @@ class ApiModel {
         if (process.env.NODE_ENV === 'production') {
             this.baseUrl = `https://my-blog-241003.appspot.com/api`
         } else {
-            this.baseUrl = 'http://localhost:3000/api'
+            this.baseUrl = `http://localhost:${process.env.PORT}/api`
         }
     }
 
